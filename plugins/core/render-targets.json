@@ -1,0 +1,12 @@
+{
+  "scene":          { "kind": "color", "format": "default", "size": { "type": "viewport" } },
+  "sceneDepth":     { "kind": "depth", "format": "depth24plus", "size": { "type": "viewport" } },
+  "shadowDepth2D":  { "kind": "depth", "format": "depth24plus", "size": { "type": "fixed", "w": 2048, "h": 2048 }, "dimension": "2d-array", "arrayLayers": 4 },
+  "shadowPoint2D":  { "kind": "depth", "format": "depth24plus", "size": { "type": "fixed", "w": 512, "h": 512 }, "dimension": "2d-array", "arrayLayers": 96 },
+  "gbufferA":       { "kind": "color", "format": "rgba16float", "size": { "type": "viewport" } },
+  "gbufferB":       { "kind": "color", "format": "rgba16float", "size": { "type": "viewport" } },
+  "gbufferC":       { "kind": "color", "format": "rgba16float", "size": { "type": "viewport" } },
+  "gbufferD":       { "kind": "color", "format": "rgba16float", "size": { "type": "viewport" } },
+  "ppA":            { "kind": "color", "format": "default", "size": { "type": "viewport" }, "transient": true },
+  "ppB":            { "kind": "color", "format": "default", "size": { "type": "viewport" }, "transient": true }
+}

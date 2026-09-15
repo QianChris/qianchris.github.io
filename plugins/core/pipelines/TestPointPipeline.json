@@ -1,0 +1,32 @@
+{
+  "name": "TestPointPipeline",
+  "vertex": { "shader": "../shaders/TestPoint.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/TestPoint.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "vertexLayouts": [
+    {
+      "arrayStride": 8, "stepMode": "vertex",
+      "attributes": [{ "format": "float32x2", "offset": 0, "shaderLocation": 0 }]
+    },
+    {
+      "arrayStride": 12, "stepMode": "instance",
+      "attributes": [{ "format": "float32x3", "offset": 0, "shaderLocation": 1 }]
+    }
+  ],
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less-equal" },
+  "bindLayout": ["frame", "object"],
+  "renderer": {
+    "query": ["MeshComponent", "TestPointRender"],
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "tag": "TestPointRender",
+    "geometry": { "steps": [{ "vertexBuffers": [{ "slot": 0, "source": "vbo", "vbo": "quad" }, { "slot": 1, "source": "meshField", "mesh": "MeshComponent.mesh", "field": "pointBuffer" }], "draw": { "type": "draw", "vertexCount": 6, "instanceCountField": "MeshComponent.pointCount" } }] },
+    "bindGroups": [
+      { "group": 1, "uniform": { "layoutRef": "perEntity", "writes": [
+        { "member": "model",  "value": "transform.model" },
+        { "member": "color",  "value": "tag.color" },
+        { "member": "params", "value": "script:params.point" }
+      ] } }
+    ]
+  }
+}

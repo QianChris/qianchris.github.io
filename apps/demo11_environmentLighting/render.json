@@ -1,0 +1,24 @@
+{
+  "name": "EnvironmentLightingDemo",
+  "clearColor": [0.02, 0.025, 0.035, 1.0],
+  "phases": {
+    "Preprocess": [],
+    "Compute": [],
+    "Opaque": [
+      {
+        "name": "EnvironmentLitPbr",
+        "pipeline": "pipelines/PbrEnvironmentPipeline.json",
+        "enabled": true
+      }
+    ],
+    "Transparent": [],
+    "Skybox": [
+      {
+        "name": "EnvironmentSky",
+        "pipeline": "environment-lighting:pipelines/EnvironmentSkyPipeline.json",
+        "enabled": true
+      }
+    ],
+    "Postprocess": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "DeferredLightPipeline",
+  "vertex": { "shader": "../shaders/DeferredLight.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/DeferredLight.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none", "frontFace": "ccw" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": false, "depthCompare": "always" },
+  "blend": "opaque",
+  "targets": [{ "format": "default" }],
+  "bindLayout": ["frame", "deferredGBuffer"],
+  "renderer": {
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "steps": [{ "draw": { "type": "draw", "vertexCount": 3 } }] },
+    "bindGroups": [
+      { "group": 1,
+        "samplers": [ { "binding": 4, "name": "default" } ],
+        "textures": [
+          { "binding": 0, "source": "renderTarget:gbufferA" },
+          { "binding": 1, "source": "renderTarget:gbufferB" },
+          { "binding": 2, "source": "renderTarget:gbufferC" },
+          { "binding": 3, "source": "renderTarget:gbufferD" }
+        ]
+      }
+    ]
+  }
+}

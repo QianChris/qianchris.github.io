@@ -1,0 +1,6 @@
+{
+  "name": "PbdSolvePipeline",
+  "compute": { "shader": "../shaders/PbdSolve.wgsl", "entryPoint": "main" },
+  "workgroupSize": 64,
+  "bindLayout": ["pbdSolve"]
+}

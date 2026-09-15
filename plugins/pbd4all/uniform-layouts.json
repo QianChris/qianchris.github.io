@@ -1,0 +1,44 @@
+{
+  "pbd4allParams": [
+    { "name": "boxMin", "type": "vec3f" },
+    { "name": "dt", "type": "f32" },
+    { "name": "boxMax", "type": "vec3f" },
+    { "name": "h", "type": "f32" },
+    { "name": "gridDimX", "type": "i32" },
+    { "name": "gridDimY", "type": "i32" },
+    { "name": "gridDimZ", "type": "i32" },
+    { "name": "h2", "type": "f32" },
+    { "name": "clampMin", "type": "vec3f" },
+    { "name": "poly6", "type": "f32" },
+    { "name": "clampMax", "type": "vec3f" },
+    { "name": "spikyGrad", "type": "f32" },
+    { "name": "gravity", "type": "f32" },
+    { "name": "mass", "type": "f32" },
+    { "name": "rho0", "type": "f32" },
+    { "name": "invRho0", "type": "f32" },
+    { "name": "cfmEps", "type": "f32" },
+    { "name": "sCorrK", "type": "f32" },
+    { "name": "sCorrWq", "type": "f32" },
+    { "name": "xsphC", "type": "f32" },
+    { "name": "n", "type": "u32" },
+    { "name": "nCells", "type": "u32" },
+    { "name": "nBoundary", "type": "u32" },
+    { "name": "omega", "type": "f32" },
+    { "name": "invDt", "type": "f32" },
+    { "name": "volume", "type": "f32" },
+    { "name": "_pad0", "type": "f32" },
+    { "name": "_pad1", "type": "f32" }
+  ],
+  "pbd4allView": [
+    { "name": "radius", "type": "f32" },
+    { "name": "speedMax", "type": "f32" },
+    { "name": "_pad0", "type": "f32" },
+    { "name": "_pad1", "type": "f32" }
+  ],
+  "pbd4allBoxParams": [
+    { "name": "boxMin", "type": "vec3f" },
+    { "name": "_pad0", "type": "f32" },
+    { "name": "boxMax", "type": "vec3f" },
+    { "name": "_pad1", "type": "f32" }
+  ]
+}

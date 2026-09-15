@@ -1,0 +1,6 @@
+{
+  "name": "PbdApplyPipeline",
+  "compute": { "shader": "../shaders/PbdApply.wgsl", "entryPoint": "main" },
+  "workgroupSize": 256,
+  "bindLayout": ["pbdApply"]
+}

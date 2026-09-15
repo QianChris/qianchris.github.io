@@ -1,0 +1,11 @@
+{
+  "name": "PbdRenderGraph",
+  "clearColor": [0.04, 0.04, 0.07, 1.0],
+  "phases": {
+    "Opaque": [
+      { "name": "Floor",      "pipeline": "pbd:pipelines/PbdFloorPipeline.json",  "enabled": true },
+      { "name": "SoftBody",   "pipeline": "pbd:pipelines/PbdDrawPipeline.json",   "enabled": true },
+      { "name": "DebugCluster","pipeline": "pbd:pipelines/PbdDebugLinesPipeline.json", "enabled": true }
+    ]
+  }
+}

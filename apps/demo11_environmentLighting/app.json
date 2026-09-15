@@ -1,0 +1,6 @@
+{
+  "name": "demo11_environmentLighting",
+  "plugins": ["environment-lighting", "orbit"],
+  "scene": "scene.json",
+  "render": "render.json"
+}

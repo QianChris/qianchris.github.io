@@ -1,0 +1,21 @@
+{
+  "name": "ShadowPipeline",
+  "vertex": { "shader": "../shaders/ShadowDepth.wgsl", "entryPoint": "vs", "input": "pos3" },
+  "primitive": { "topology": "triangle-list", "cullMode": "back", "frontFace": "ccw" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less" },
+  "bindLayout": ["frameShadow", "object", "shadowPass"],
+  "renderer": {
+    "query": ["MeshComponent", "PbrMaterial"],
+    "phase": "Shadow",
+    "target": { "color": "none", "depth": "none" },
+    "filter": { "component": "PbrMaterial", "field": "shadowCast", "value": 1 },
+    "geometry": { "steps": [{ "vertexBuffers": [{ "slot": 0, "source": "meshSlots", "mesh": "MeshComponent.mesh" }], "indexBuffer": { "mesh": "MeshComponent.mesh" }, "draw": { "type": "drawIndexed", "countField": "MeshComponent.indexCount" } }] },
+    "bindGroups": [
+      { "group": 1, "uniform": { "layoutRef": "pbrObject", "writes": [
+        { "member": "model",        "value": "transform.model" },
+        { "member": "normalMatrix", "value": "transform.normalMatrix" },
+        { "member": "entityId",     "value": "builtin.entityId" }
+      ] } }
+    ]
+  }
+}

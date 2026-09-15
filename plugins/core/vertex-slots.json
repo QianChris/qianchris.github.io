@@ -1,0 +1,9 @@
+{
+    "Pos":         { "location": 0, "format": "float32x3", "stride": 12, "components": 3 },
+    "Normal":      { "location": 1, "format": "float32x3", "stride": 12, "components": 3 },
+    "UV":          { "location": 2, "format": "float32x2", "stride": 8,  "components": 2 },
+    "JointIndex":  { "location": 3, "format": "uint16x4",  "stride": 8,  "components": 4 },
+    "JointWeight": { "location": 4, "format": "float32x4", "stride": 16, "components": 4 },
+    "Tangent":     { "location": 5, "format": "float32x4", "stride": 16, "components": 4 },
+    "Color":       { "location": 6, "format": "float32x4", "stride": 16, "components": 4 }
+}

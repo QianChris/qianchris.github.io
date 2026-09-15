@@ -1,0 +1,11 @@
+[
+    { "name": "Preprocess",  "order": 10, "behavior": "normal" },
+    { "name": "Compute",     "order": 20, "behavior": "normal" },
+    { "name": "Shadow",      "order": 30, "behavior": "shadow-clear" },
+    { "name": "GBuffer",     "order": 35, "behavior": "normal" },
+    { "name": "Opaque",      "order": 40, "behavior": "normal" },
+    { "name": "Skybox",      "order": 50, "behavior": "normal" },
+    { "name": "Transparent", "order": 60, "behavior": "normal" },
+    { "name": "Postprocess", "order": 70, "behavior": "postprocess-chain" },
+    { "name": "UI",          "order": 80, "behavior": "normal" }
+]

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaderLab-WebGPU — Demos</title>
+    <link rel="icon" href="data:,">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0d1117; color: #e6edf3;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            min-height: 100vh;
+        }
+        a { color: #58a6ff; text-decoration: none; }
+
+        /* ---------- 锁屏 ---------- */
+        #gate {
+            display: flex; align-items: center; justify-content: center;
+            min-height: 100vh;
+        }
+        #gate-card {
+            background: #161b22; border: 1px solid #30363d; border-radius: 12px;
+            padding: 40px 44px; width: 340px; text-align: center;
+        }
+        #gate-card h1 { font-size: 20px; margin-bottom: 6px; letter-spacing: 0.5px; }
+        #gate-card p { font-size: 12px; color: #8b949e; margin-bottom: 24px; }
+        #pw {
+            width: 100%; padding: 10px 14px; font-size: 15px;
+            background: #0d1117; color: #e6edf3;
+            border: 1px solid #30363d; border-radius: 8px; outline: none;
+        }
+        #pw:focus { border-color: #58a6ff; }
+        #gate-err { color: #f85149; font-size: 12px; height: 18px; margin-top: 10px; }
+        #gate-hint { color: #8b949e; font-size: 11px; margin-top: 8px; }
+
+        /* ---------- 列表 ---------- */
+        #list { display: none; max-width: 1080px; margin: 0 auto; padding: 48px 24px 80px; }
+        header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; flex-wrap: wrap; }
+        header h1 { font-size: 26px; letter-spacing: 0.5px; }
+        header a { font-size: 13px; color: #8b949e; }
+        header a:hover { color: #58a6ff; }
+        header .spacer { flex: 1; }
+        header button {
+            background: none; border: 1px solid #30363d; color: #8b949e;
+            border-radius: 6px; padding: 4px 12px; font-size: 12px; cursor: pointer;
+        }
+        header button:hover { color: #e6edf3; border-color: #8b949e; }
+        #sub { color: #8b949e; font-size: 13px; margin-bottom: 32px; }
+        #grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .card {
+            display: block; background: #161b22; border: 1px solid #30363d;
+            border-radius: 10px; padding: 20px 22px; color: inherit;
+            transition: border-color 0.15s, transform 0.15s;
+        }
+        .card:hover { border-color: #58a6ff; transform: translateY(-2px); }
+        .card h2 { font-size: 16px; margin-bottom: 8px; color: #e6edf3; }
+        .card p { font-size: 13px; color: #8b949e; line-height: 1.55; min-height: 40px; }
+        .card .meta {
+            display: flex; justify-content: space-between; margin-top: 14px;
+            font-size: 11px; color: #6e7681; font-family: Consolas, monospace;
+        }
+        .card .open { color: #58a6ff; }
+        #load-err { color: #f85149; font-size: 14px; margin-top: 24px; }
+        footer { margin-top: 48px; color: #484f58; font-size: 11px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div id="gate">
+    <div id="gate-card">
+        <h1>ShaderLab-WebGPU</h1>
+        <p>Restricted — password required</p>
+        <input id="pw" type="password" placeholder="Password" autocomplete="current-password" autofocus>
+        <div id="gate-err"></div>
+        <div id="gate-hint">需要支持 WebGPU 的浏览器（Chrome / Edge 113+）</div>
+    </div>
+</div>
+
+<div id="list">
+    <header>
+        <h1>ShaderLab-WebGPU</h1>
+        <a href="editor.html">编辑器</a>
+        <div class="spacer"></div>
+        <button id="logout">退出登录</button>
+    </header>
+    <div id="sub">基于插件架构的 WebGPU 图形引擎 — 演示合集。点击卡片在新标签页运行。</div>
+    <div id="grid"></div>
+    <div id="load-err"></div>
+    <footer>WebGPU required · best viewed in Chrome / Edge 113+</footer>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    // build-site.mjs 在构建时替换此占位符为 SHA-256("sl:" + password) 的十六进制值。
+    // 占位符未被替换（例如直接用 dev server 打开）时视为未配置，任何密码都拒绝。
+    var HASH = 'b9dae9de33520217ebf4c47a85418206e5e52c88eecd0a85c3e6b531973ebe8a';
+    var KEY = 'sl-site-auth';
+    var TTL_MS = 7 * 24 * 3600 * 1000; // 7 天
+
+    var gateEl = document.getElementById('gate');
+    var listEl = document.getElementById('list');
+    var pwEl = document.getElementById('pw');
+    var errEl = document.getElementById('gate-err');
+
+    function isAuthed() {
+        try {
+            var v = JSON.parse(localStorage.getItem(KEY));
+            return !!v && (Date.now() - v.t) < TTL_MS;
+        } catch (e) { return false; }
+    }
+
+    function showList() {
+        gateEl.style.display = 'none';
+        listEl.style.display = 'block';
+        // Warm the largest runtime asset into the HTTP cache while the user
+        // browses the list — every demo's plugin load needs it first.
+        fetch('assets/engine-api.js').catch(function () {});
+        fetch('demos.json')
+            .then(function (r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.json();
+            })
+            .then(render)
+            .catch(function (e) {
+                document.getElementById('load-err').textContent =
+                    'demos.json 加载失败: ' + e.message;
+            });
+    }
+
+    function render(demos) {
+        var grid = document.getElementById('grid');
+        demos.forEach(function (d) {
+            var a = document.createElement('a');
+            a.className = 'card';
+            a.href = 'player.html?app=' + encodeURIComponent(d.id);
+            a.target = '_blank';
+            a.rel = 'noopener';
+            var h2 = document.createElement('h2');
+            h2.textContent = d.title || d.id;
+            var p = document.createElement('p');
+            p.textContent = d.description || '';
+            var meta = document.createElement('div');
+            meta.className = 'meta';
+            var id = document.createElement('span');
+            id.textContent = d.id;
+            var open = document.createElement('span');
+            open.className = 'open';
+            open.textContent = 'Run \u2197';
+            meta.appendChild(id);
+            meta.appendChild(open);
+            a.appendChild(h2);
+            a.appendChild(p);
+            a.appendChild(meta);
+            grid.appendChild(a);
+        });
+    }
+
+    function sha256Hex(s) {
+        if (!window.crypto || !crypto.subtle) {
+            return Promise.reject(new Error('crypto.subtle 不可用（需要 HTTPS 或 localhost）'));
+        }
+        return crypto.subtle
+            .digest('SHA-256', new TextEncoder().encode('sl:' + s))
+            .then(function (buf) {
+                var bytes = new Uint8Array(buf);
+                var hex = '';
+                for (var i = 0; i < bytes.length; i++) {
+                    hex += bytes[i].toString(16).padStart(2, '0');
+                }
+                return hex;
+            });
+    }
+
+    function submit() {
+        var val = pwEl.value;
+        errEl.textContent = '';
+        sha256Hex(val)
+            .then(function (h) {
+                if (h === HASH) {
+                    localStorage.setItem(KEY, JSON.stringify({ t: Date.now() }));
+                    showList();
+                } else {
+                    errEl.textContent = '密码错误';
+                    pwEl.select();
+                }
+            })
+            .catch(function (e) { errEl.textContent = e.message; });
+    }
+
+    pwEl.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') submit();
+    });
+    document.getElementById('logout').addEventListener('click', function () {
+        localStorage.removeItem(KEY);
+        location.reload();
+    });
+
+    if (isAuthed()) showList();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "demo14_pbfFluid",
+  "plugins": ["pbd4all", "orbit"],
+  "scene": "scene.json",
+  "render": "render.json"
+}

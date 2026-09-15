@@ -1,0 +1,12 @@
+{
+  "name": "Tint",
+  "vertex": { "shader": "../shaders/Tint.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/Tint.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": false,
+  "bindLayout": ["fullscreenParam"],
+  "renderer": {
+    "phase": "Postprocess",
+    "geometry": { "steps": [{ "draw": { "type": "draw", "vertexCount": 3 } }] }
+  }
+}

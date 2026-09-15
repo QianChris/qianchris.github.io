@@ -1,0 +1,7 @@
+[
+    {
+        "id": "paint-hud",
+        "source": "ui/paintHUD.js",
+        "container": "#hud-container"
+    }
+]

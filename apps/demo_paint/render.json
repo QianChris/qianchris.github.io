@@ -1,0 +1,9 @@
+{
+  "name": "PaintRenderGraph",
+  "clearColor": [0.1, 0.1, 0.12, 1.0],
+  "phases": {
+    "Opaque": [
+      { "name": "Canvas", "pipeline": "textureedit:pipelines/TextureEditPipeline.json", "enabled": true }
+    ]
+  }
+}

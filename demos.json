@@ -1,0 +1,72 @@
+[
+  {
+    "id": "demo1",
+    "title": "glTF PBR — DamagedHelmet",
+    "description": "glTF 模型加载、PBR 材质、天空盒与粒子，引擎基线能力展示。"
+  },
+  {
+    "id": "demo2",
+    "title": "基础渲染图",
+    "description": "网格 / 线框 / 描边管线组合，粒子火花与天空盒。"
+  },
+  {
+    "id": "demo3_shadow",
+    "title": "阴影",
+    "description": "方向光阴影贴图与阴影相位行为。"
+  },
+  {
+    "id": "demo4_spriteSheet",
+    "title": "精灵图动画",
+    "description": "SpriteSheet 帧动画系统与 sprite 插件管线。"
+  },
+  {
+    "id": "demo5_deferred",
+    "title": "延迟渲染",
+    "description": "G-Buffer 延迟渲染管线，多相位渲染目标编排。"
+  },
+  {
+    "id": "demo6_3dgsViewer",
+    "title": "3DGS 查看器",
+    "description": "3D Gaussian Splatting 多实例渲染与深度合成。"
+  },
+  {
+    "id": "demo7_multiView",
+    "title": "多视图渲染",
+    "description": "多相机单 Encoder 渲染，每相机独立 UBO。"
+  },
+  {
+    "id": "demo8_customSystem",
+    "title": "自定义系统",
+    "description": "运行时装载的 orbit 插件：组件 + 系统 + 自动轨道。"
+  },
+  {
+    "id": "demo9_softBody",
+    "title": "软体物理",
+    "description": "Rapier 软体模拟与渲染。"
+  },
+  {
+    "id": "demo11_environmentLighting",
+    "title": "环境光照",
+    "description": "SH9 环境光、GGX specular cubemap、DFG LUT 与可见天空。"
+  },
+  {
+    "id": "demo12_animation",
+    "title": "动画",
+    "description": "glTF 骨骼动画播放。"
+  },
+  {
+    "id": "demo13_materials",
+    "title": "材质",
+    "description": "多组 PBR 材质参数对比。"
+  },
+  {
+    "id": "demo14_pbfFluid",
+    "title": "PBF 流体",
+    "description": "Position Based Fluid 流体模拟，compute + 渲染联动。"
+  },
+  {
+    "id": "demo_paint",
+    "title": "纹理绘制",
+    "description": "textureedit 插件：交互式纹理绘制与实时渲染反馈。"
+  }
+]

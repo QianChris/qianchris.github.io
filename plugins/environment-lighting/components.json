@@ -1,0 +1,17 @@
+[
+  {
+    "name": "EnvironmentLightComponent",
+    "fields": {
+      "source": { "type": "string", "default": "../../common/textures/skybox.png" },
+      "lightingEnabled": { "type": "bool", "default": true },
+      "skyVisible": { "type": "bool", "default": true },
+      "intensity": { "type": "f32", "default": 1.0 },
+      "diffuseIntensity": { "type": "f32", "default": 1.0 },
+      "specularIntensity": { "type": "f32", "default": 1.0 },
+      "backgroundIntensity": { "type": "f32", "default": 1.0 },
+      "rotation": { "type": "f32", "default": 0.0 },
+      "skyResolution": { "type": "u32", "default": 2048 },
+      "specularResolution": { "type": "u32", "default": 64 }
+    }
+  }
+]

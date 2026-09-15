@@ -1,0 +1,102 @@
+{
+  "MainCamera": {
+    "Transform": { "position": [0, 0.5, 6], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "Camera": { "fov": 45, "near": 0.1, "far": 100, "active": 1 }
+  },
+  "Environment": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "EnvironmentComponent": { "ambientLight": [0.2, 0.2, 0.25, 2.0], "clearColor": [0.06, 0.06, 0.14, 1.0] }
+  },
+  "SunLight": {
+    "Transform": { "position": [0, 5, 0], "rotation": [0.36, -0.2, 0.08, 0.906], "scale": [1, 1, 1] },
+    "LightComponent": { "type": "directional", "color": [1, 0.96, 0.9], "intensity": 3.0, "castShadow": true, "shadowOrtho": 10, "shadowNear": 0.1, "shadowFar": 50 }
+  },
+  "FillLight": {
+    "Transform": { "position": [0, 3, 1], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "LightComponent": { "type": "point", "color": [1, 0.95, 0.8], "intensity": 40.0, "range": 12 }
+  },
+  "PhysicsWorld": {
+    "PhysicsControllerComponent": { "enabled": 1, "gravity": [0, -9.81, 0], "timeStep": 0.0166667, "maxSubsteps": 4, "debugDraw": 1, "groundEnabled": 1, "groundHeight": -2 }
+  },
+  "FallingCube": {
+    "Transform": { "position": [-1, 3, -2], "rotation": [0.2, 0.1, 0, 0.97], "scale": [0.5, 0.5, 0.5] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.9, 0.4, 0.2, 1] },
+    "RigidBodyComponent": { "bodyType": "dynamic" },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [0.25, 0.25, 0.25], "restitution": 0.4 }
+  },
+  "FallingBall": {
+    "Transform": { "position": [0, 4.5, -2], "rotation": [0, 0, 0, 1], "scale": [0.5, 0.5, 0.5] },
+    "MeshComponent": { "mesh": "icosphere" },
+    "TestMeshRender": { "color": [0.3, 0.7, 0.9, 1] },
+    "RigidBodyComponent": { "bodyType": "dynamic" },
+    "ColliderComponent": { "shape": "ball", "radius": 0.25, "restitution": 0.6 }
+  },
+  "Triangle": {
+    "Transform": { "position": [-1.5, 0, 0], "rotation": [0, 0, 0, 1], "scale": [0.7, 0.7, 0.7] },
+    "MeshComponent": { "mesh": "triangle" },
+    "TestMeshRender": { "color": [0.9, 0.2, 0.2, 1] },
+    "TestEdgeRender": { "color": [0.1, 0.9, 0.3, 1], "lineWidth": 3 },
+    "TestPointRender": { "color": [1, 1, 0.3, 1], "pointSize": 8 }
+  },
+  "Cube": {
+    "Transform": { "position": [-0.5, 0, 0], "rotation": [0.25, 0.25, -0.067, 0.933], "scale": [0.7, 0.7, 0.7] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.2, 0.5, 0.9, 1] },
+    "TestEdgeRender": { "color": [1, 1, 1, 1], "lineWidth": 2 }
+  },
+  "IcoSphere": {
+    "Transform": { "position": [0.6, 0, 0], "rotation": [0, 0, 0, 1], "scale": [0.7, 0.7, 0.7] },
+    "MeshComponent": { "mesh": "icosphere" },
+    "TestMeshRender": { "color": [0.9, 0.5, 0.2, 1] },
+    "TestEdgeRender": { "color": [0.1, 0.1, 0.1, 1], "lineWidth": 1.5 }
+  },
+  "UvSphere": {
+    "Transform": { "position": [1.7, 0, 0], "rotation": [0, 0, 0, 1], "scale": [0.7, 0.7, 0.7] },
+    "MeshComponent": { "mesh": "uvsphere" },
+    "TestMeshRender": { "color": [0.6, 0.3, 0.8, 1] },
+    "TestPointRender": { "color": [1, 1, 1, 1], "pointSize": 4 }
+  },
+  "SpinningCube": {
+    "Transform": { "position": [0.6, 1.4, 0], "rotation": [0, 0, 0, 1], "scale": [0.4, 0.4, 0.4] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.9, 0.8, 0.2, 1] },
+    "ScriptComponent": { "script": "scripts/spin.js", "enabled": 1 }
+  },
+  "Particles": {
+    "Transform": { "position": [0, -1.2, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "ParticleSystemComponent": { "maxParticles": 3000, "gravity": [0, -1.2, 0], "drag": 0.1 }
+  },
+  "FountainEmitter": {
+    "Transform": { "position": [0, -1.6, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "EmitterComponent": {
+      "system": "Particles", "enabled": 1, "shape": "sphere", "radius": 0.15,
+      "rate": 600, "direction": [0, 1, 0], "spread": 0.35,
+      "speedMin": 2.5, "speedMax": 4.0, "lifeMin": 1.5, "lifeMax": 2.8,
+      "startSize": 0.09, "endSize": 0.0, "gravityScale": 1.0,
+      "startColor": [1.0, 0.85, 0.3, 1.0], "endColor": [1.0, 0.15, 0.0, 0.0]
+    }
+  },
+  "SwirlField": {
+    "Transform": { "position": [0, 0.5, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "ForceFieldComponent": {
+      "system": "Particles", "enabled": 1, "type": "vortex",
+      "strength": 5.0, "radius": 4.0, "falloff": 1.0, "direction": [0, 1, 0]
+    }
+  },
+  "PbrSphere": {
+    "Transform": { "position": [2.8, 0, 0], "rotation": [0, 0, 0, 1], "scale": [0.7, 0.7, 0.7] },
+    "MeshComponent": { "mesh": "pbr_icosphere" },
+    "PbrMaterial": { "baseColor": [0.9, 0.6, 0.3, 1], "metallic": 0.8, "roughness": 0.3, "ao": 1, "emissive": [0, 0, 0] }
+  },
+  "PbrCube": {
+    "Transform": { "position": [4.0, 0, 0], "rotation": [0.2, 0.3, 0, 0.93], "scale": [0.7, 0.7, 0.7] },
+    "MeshComponent": { "mesh": "pbr_cube" },
+    "PbrMaterial": { "baseColor": [0.3, 0.7, 0.4, 1], "metallic": 0.1, "roughness": 0.6, "ao": 1, "emissive": [0, 0, 0] }
+  },
+  "PbrUvSphere": {
+    "Transform": { "position": [5.2, 0, 0], "rotation": [0, 0, 0, 1], "scale": [0.7, 0.7, 0.7] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.9, 0.85, 0.1, 1], "metallic": 1.0, "roughness": 0.2, "ao": 1, "emissive": [0, 0, 0] }
+  }
+}

@@ -1,0 +1,44 @@
+{
+    "transform": {
+        "component": "Transform",
+        "fields": {
+            "position": "position",
+            "rotation": "rotation",
+            "scale": "scale"
+        }
+    },
+    "mesh": {
+        "component": "MeshComponent",
+        "field": "mesh"
+    },
+    "material": {
+        "component": "PbrMaterial",
+        "fields": {
+            "baseColorFactor": "baseColor",
+            "metallicFactor": "metallic",
+            "roughnessFactor": "roughness",
+            "aoStrength": "ao",
+            "emissiveFactor": "emissive"
+        },
+        "textures": {
+            "baseColorTexture": "texBaseColor",
+            "metallicRoughnessTexture": "texMetalRough",
+            "occlusionTexture": "texOcclusion",
+            "emissiveTexture": "texEmissive",
+            "normalTexture": "texNormal"
+        }
+    },
+    "skin": {
+        "component": "SkeletonComponent",
+        "fields": {
+            "skinAsset": "skinAsset",
+            "jointCount": "jointCount"
+        }
+    },
+    "animation": {
+        "component": "AnimationPlayerComponent",
+        "fields": {
+            "clip": "clip"
+        }
+    }
+}

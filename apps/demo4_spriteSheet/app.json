@@ -1,0 +1,5 @@
+{
+  "name": "demo4_spriteSheet",
+  "scene": "scene.json",
+  "render": "render.json"
+}

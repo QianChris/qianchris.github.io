@@ -1,0 +1,44 @@
+{
+  "MainCamera": {
+    "Transform": { "position": [1.9, 1.4, 2.1], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "Camera": { "fov": 45, "near": 0.05, "far": 100, "active": 1 },
+    "OrbitCameraComponent": {
+      "azimuth": 0.65,
+      "elevation": 0.32,
+      "distance": 2.6,
+      "target": [0.75, 0.45, 0.5],
+      "rotSpeed": 3.0,
+      "zoomSpeed": 0.15,
+      "minDistance": 0.5,
+      "maxDistance": 12.0
+    }
+  },
+  "Environment": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "EnvironmentComponent": { "ambientLight": [0.25, 0.25, 0.3, 1.0], "clearColor": [0.09, 0.10, 0.12, 1.0] }
+  },
+  "SunLight": {
+    "Transform": { "position": [0, 5, 0], "rotation": [0.36, -0.2, 0.08, 0.906], "scale": [1, 1, 1] },
+    "LightComponent": { "type": "directional", "color": [1, 0.96, 0.9], "intensity": 2.5 }
+  },
+  "Fluid": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "PbfFluidComponent": {
+      "particleCount": 30000,
+      "box": [1.5, 1.0, 1.0],
+      "spacing": 0.02,
+      "restDensity": 1000,
+      "gravity": 9.81,
+      "substeps": 2,
+      "iterations": 4,
+      "cfmEpsilonRel": 0.01,
+      "sCorrK": 0.1,
+      "sCorrDq": 0.3,
+      "xsphC": 0.066,
+      "omega": 1.03,
+      "timeScale": 0.578,
+      "drawRadiusScale": 0.37,
+      "speedMax": 2.845
+    }
+  }
+}

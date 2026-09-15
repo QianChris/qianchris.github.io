@@ -1,0 +1,8 @@
+[
+  {
+    "type": "pick",
+    "enabled": true,
+    "button": 0,
+    "selectEvent": "pick"
+  }
+]

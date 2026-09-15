@@ -1,0 +1,21 @@
+{
+  "name": "TestMeshPipeline",
+  "vertex": { "shader": "../shaders/TestMesh.wgsl", "entryPoint": "vs", "input": "pos3" },
+  "fragment": { "shader": "../shaders/TestMesh.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less" },
+  "bindLayout": ["frame", "object"],
+  "renderer": {
+    "query": ["MeshComponent", "TestMeshRender"],
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "tag": "TestMeshRender",
+    "geometry": { "steps": [{ "vertexBuffers": [{ "slot": 0, "source": "meshSlots", "mesh": "MeshComponent.mesh" }], "indexBuffer": { "mesh": "MeshComponent.mesh" }, "draw": { "type": "drawIndexed", "countField": "MeshComponent.indexCount" } }] },
+    "bindGroups": [
+      { "group": 1, "uniform": { "layoutRef": "perEntity", "writes": [
+        { "member": "model", "value": "transform.model" },
+        { "member": "color", "value": "tag.color" }
+      ] } }
+    ]
+  }
+}

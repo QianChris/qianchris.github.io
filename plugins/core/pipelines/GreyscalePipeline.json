@@ -1,0 +1,12 @@
+{
+  "name": "Greyscale",
+  "vertex": { "shader": "../shaders/Greyscale.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/Greyscale.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": false,
+  "bindLayout": ["fullscreen"],
+  "renderer": {
+    "phase": "Postprocess",
+    "geometry": { "steps": [{ "draw": { "type": "draw", "vertexCount": 3 } }] }
+  }
+}

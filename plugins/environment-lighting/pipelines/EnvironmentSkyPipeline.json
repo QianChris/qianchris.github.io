@@ -1,0 +1,23 @@
+{
+  "name": "EnvironmentSkyPipeline",
+  "vertex": { "shader": "../shaders/EnvironmentSky.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/EnvironmentSky.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": false, "depthCompare": "less-equal" },
+  "bindLayout": ["frame", "environmentSky"],
+  "renderer": {
+    "query": ["EnvironmentLightComponent"],
+    "filter": { "component": "EnvironmentLightComponent", "field": "skyVisible", "value": 1 },
+    "phase": "Skybox",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "steps": [{ "draw": { "type": "draw", "vertexCount": 3 } }] },
+    "bindGroups": [{
+      "group": 1,
+      "resources": [
+        { "binding": 0, "source": "resource:environment.data" },
+        { "binding": 1, "source": "resource:environment.sampler" },
+        { "binding": 2, "source": "resource:environment.sky-radiance" }
+      ]
+    }]
+  }
+}

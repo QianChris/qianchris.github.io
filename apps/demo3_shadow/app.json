@@ -1,0 +1,7 @@
+{
+  "name": "demo3_shadow",
+  "plugins": ["orbit"],
+  "scene": "scene.json",
+  "render": "render.json",
+  "gltf": ["../../assets/models/DamagedHelmet.glb"]
+}

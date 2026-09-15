@@ -1,0 +1,14 @@
+{
+  "name": "GridPipeline",
+  "vertex": { "shader": "../shaders/Grid.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/Grid.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less" },
+  "blend": "alpha",
+  "bindLayout": ["frame"],
+  "renderer": {
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "steps": [{ "draw": { "type": "draw", "vertexCount": 3 } }] }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "demo8_customSystem",
+  "plugins": ["orbit"],
+  "scene": "scene.json",
+  "render": "render.json"
+}

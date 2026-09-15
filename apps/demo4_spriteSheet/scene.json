@@ -1,0 +1,32 @@
+{
+  "MainCamera": {
+    "Transform": { "position": [0, 0, 5], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "Camera": { "fov": 70, "near": 0.1, "far": 100, "active": 1 }
+  },
+  "Environment": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "EnvironmentComponent": { "ambientLight": [0.5, 0.5, 0.5, 1.0], "clearColor": [0.02, 0.02, 0.05, 1.0] }
+  },
+  "SpriteBottom": {
+    "Transform": { "position": [0, -2, 0], "rotation": [-0.7071, 0, 0, 0.7071], "scale": [1.5, 1.5, 1.5] },
+    "MeshComponent": { "mesh": "pbr_plane" },
+    "SpriteSheetComponent": { "sheet": "sheets/spritesheet.json", "columns": 8, "rows": 9 },
+    "SpriteAnimationComponent": { "animation": 0 }
+  },
+  "SpriteCenter": {
+    "Transform": { "position": [0, 0, 0], "rotation": [-0.7071, 0, 0, 0.7071], "scale": [1.5, 1.5, 1.5] },
+    "MeshComponent": { "mesh": "pbr_plane" },
+    "SpriteSheetComponent": { "sheet": "sheets/spritesheet.json", "columns": 8, "rows": 9 },
+    "SpriteAnimationComponent": { "animation": 4 }
+  },
+  "SpriteTop": {
+    "Transform": { "position": [0, 2, 0], "rotation": [-0.7071, 0, 0, 0.7071], "scale": [1.5, 1.5, 1.5] },
+    "MeshComponent": { "mesh": "pbr_plane" },
+    "SpriteSheetComponent": { "sheet": "sheets/spritesheet.json", "columns": 8, "rows": 9 },
+    "SpriteAnimationComponent": { "animation": 8 }
+  },
+  "Director": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "ScriptComponent": { "script": "scripts/director.js", "enabled": 1 }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+  "MeshComponent": { "mesh": "cube" },
+  "PbrMaterial": { "metallic": 0.0, "roughness": 0.5, "ao": 1.0, "emissive": [0, 0, 0] }
+}

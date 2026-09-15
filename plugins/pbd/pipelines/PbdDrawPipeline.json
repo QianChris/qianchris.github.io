@@ -1,0 +1,21 @@
+{
+  "name": "PbdDrawPipeline",
+  "vertex": { "shader": "../shaders/PbdDraw.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/PbdDraw.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less" },
+  "bindLayout": ["frame", "pbdDraw"],
+  "renderer": {
+    "query": ["PbdSoftBodyComponent"],
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "hook": "pbd.draw" },
+    "compute": { "script": "pbd.simulate" },
+    "aux": {
+      "predict": "pbd:pipelines/PbdPredictPipeline.json",
+      "solve": "pbd:pipelines/PbdSolvePipeline.json",
+      "apply": "pbd:pipelines/PbdApplyPipeline.json",
+      "integrate": "pbd:pipelines/PbdIntegratePipeline.json"
+    }
+  }
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaderLab-WebGPU</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #1a1a2e; overflow: hidden; font-family: 'Segoe UI', monospace; }
+
+        #app { display: flex; flex-direction: column; width: 100vw; height: 100vh; }
+
+        /* Top toolbar (undo/redo) — built by EditorUILayer */
+        #toolbar {
+            width: 100%; height: 36px; flex-shrink: 0; z-index: 6;
+            background: #16213e; border-bottom: 1px solid #2a3a5c;
+            display: flex; align-items: center; gap: 8px; padding: 0 10px;
+        }
+        .tb-btn {
+            padding: 4px 12px; font-size: 12px; background: #2a3a5c; color: #ccc;
+            border: 1px solid #3a4a6c; border-radius: 4px; cursor: pointer;
+            font-family: inherit;
+        }
+        .tb-btn:hover:not(:disabled) { background: #3a4a6c; color: #fff; }
+        .tb-btn:disabled { opacity: 0.4; cursor: default; }
+        .tb-btn-player { background: #1d4d3a; border-color: #2f7a58; color: #7fd8a8; }
+        .tb-btn-player:hover:not(:disabled) { background: #2f7a58; color: #fff; }
+        .tb-title { margin-left: auto; color: #556; font-size: 11px; }
+
+        #main { flex: 1; display: flex; min-height: 0; }
+
+        /* Viewport column: canvas on top, asset view strip below */
+        #viewport-col {
+            flex: 1; min-width: 0; min-height: 0;
+            display: flex; flex-direction: column;
+        }
+        #canvas-wrap { flex: 1; position: relative; min-height: 0; }
+        canvas { display: block; width: 100%; height: 100%; }
+        /* Vertical drag handle between the canvas and the asset strip */
+        #asset-resizer {
+            height: 5px; flex-shrink: 0; cursor: row-resize;
+            background: #2a3a5c; position: relative; z-index: 3;
+        }
+        #asset-resizer:hover, #asset-resizer.dragging { background: #4a8fc7; }
+        #asset-bottom {
+            height: 180px; min-height: 80px; max-height: 480px; flex-shrink: 0;
+            background: #16213e; border-top: 1px solid #2a3a5c;
+            display: flex; flex-direction: column; min-height: 0;
+        }
+
+        #info {
+            position: fixed; top: 46px; left: 50%; transform: translateX(-50%);
+            color: #fff; font-family: monospace; font-size: 12px;
+            background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 6px;
+            pointer-events: none; z-index: 10;
+        }
+        #error {
+            position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%);
+            color: #ff6b6b; font-family: monospace; font-size: 14px; text-align: center;
+            display: none; z-index: 10;
+        }
+
+        /* App UI layers mount here (ui-config.json) */
+        #ui-container {
+            position: fixed; inset: 0; pointer-events: none; z-index: 5;
+        }
+        /* Children are interactive, but ONLY within their own content box —
+           a full-width block child (e.g. the HUD container) must NOT stretch
+           across the whole screen and swallow clicks meant for the sidebar. */
+        #ui-container > * { pointer-events: auto; width: max-content; max-width: 100%; }
+
+        /* Sidebar + tabs */
+        #sidebar {
+            width:320px; min-width:240px; max-width:640px; height:100%;
+            background:#16213e; border-left:1px solid #2a3a5c; color:#ccc;
+            font-size:12px; flex-shrink:0; display:flex; flex-direction:column;
+        }
+        /* Drag handle between canvas and sidebar */
+        #sidebar-resizer {
+            width:5px; height:100%; flex-shrink:0; cursor:col-resize;
+            background:#2a3a5c; position:relative; z-index:3;
+        }
+        #sidebar-resizer:hover, #sidebar-resizer.dragging { background:#4a8fc7; }
+        body.sidebar-resizing { cursor:col-resize; user-select:none; }
+        body.sidebar-resizing #sidebar { pointer-events:none; }
+        body.asset-resizing { cursor:row-resize; user-select:none; }
+        body.asset-resizing #asset-bottom { pointer-events:none; }
+        #tabs { display:flex; flex-shrink:0; border-bottom:1px solid #2a3a5c; }
+        .tab-btn {
+            flex:1; padding:8px; background:#16213e; color:#8899aa;
+            border:none; border-bottom:2px solid transparent; cursor:pointer;
+            font-size:12px; font-family:inherit;
+        }
+        .tab-btn:hover { color:#fff; }
+        .tab-btn.active { color:#fff; background:#1a2744; border-bottom-color:#4a8fc7; }
+        .tab-panel { flex:1; overflow-y:auto; display:flex; flex-direction:column; min-height:0; }
+
+        /* Editor Panel */
+        #editor { display:flex; flex-direction:column; flex:1; min-height:0; color:#ccc; font-size:12px; }
+        #pipeline-panel { display:flex; flex-direction:column; flex:1; min-height:0; }
+
+        /* Pipeline Panel */
+        .pp-phase { margin:6px 6px 10px; }
+        .pp-phase-title {
+            color:#7ec8e3; font-size:10px; font-weight:700; padding:4px 2px;
+            text-transform:uppercase; letter-spacing:0.6px;
+            border-bottom:1px solid #2a3a5c; margin-bottom:4px;
+        }
+        .pp-empty { color:#556; font-size:10px; padding:1px 4px; font-style:italic; }
+        .pp-entry-wrap { margin-bottom:3px; }
+        .pp-entry {
+            display:flex; align-items:center; gap:6px; padding:4px 8px;
+            border:1px solid #2a3a5c; border-radius:4px; background:#1a2744;
+        }
+        .pp-entry input[type=checkbox] { cursor:pointer; }
+        .pp-entry-name { flex:1; color:#ddd; }
+        .pp-entry-kind { color:#667; font-size:9px; text-transform:uppercase; }
+        .pp-params { display:flex; align-items:center; gap:3px; padding:3px 8px 2px 24px; }
+        .pp-param-label { color:#888; font-size:10px; margin-right:4px; }
+        .pp-config { padding:4px 8px 4px 24px; display:flex; flex-direction:column; gap:3px; }
+        .pp-config-row { display:flex; align-items:center; gap:6px; }
+        .pp-config-label { color:#889; font-size:10px; width:88px; flex-shrink:0; }
+        .ed-select {
+            flex:1; background:#0f1a30; color:#cde; border:1px solid #2a3a5c;
+            border-radius:3px; font-size:10px; padding:2px 4px; cursor:pointer;
+        }
+        .ed-check { cursor:pointer; }
+        .editor-head {
+            padding:8px 10px; border-bottom:1px solid #2a3a5c;
+            display:flex; justify-content:space-between; align-items:center;
+            position:sticky; top:0; background:#16213e; z-index:2;
+        }
+        .ed-title { color:#fff; font-weight:600; font-size:13px; }
+        .editor-btn-row { display:flex; gap:4px; }
+        .editor-btn {
+            padding:3px 8px; font-size:11px; background:#2a3a5c; color:#ccc;
+            border:1px solid #3a4a6c; border-radius:4px; cursor:pointer;
+        }
+        .editor-btn:hover { background:#3a4a6c; color:#fff; }
+        .ed-error { padding:12px; color:#ff6b6b; font-size:11px; font-style:italic; }
+        .tb-dirty { color:#e8a040; font-size:14px; line-height:1; padding:0 4px; }
+
+        /* Entity list */
+        .ed-ent-list {
+            border-bottom:1px solid #2a3a5c;
+            flex:1 1 50%; min-height:0; display:flex; flex-direction:column;
+        }
+        .ed-ent-list-head {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:6px 10px; color:#7ec8e3; font-weight:500; font-size:11px;
+            flex-shrink:0;
+        }
+        .ed-ent-list-actions { display:flex; gap:2px; }
+        .ed-ent-rows { flex:1; min-height:0; overflow-y:auto; }
+        .ed-ent-row {
+            padding:5px 10px; cursor:pointer; border-top:1px solid #1e2d44;
+            display:flex; align-items:center;
+        }
+        .ed-ent-row:hover { background:#1e2d44; }
+        .ed-ent-sel { background:#1e2d44; border-left:2px solid #4a8fc7; }
+        .ed-ent-name { flex:1; }
+
+        /* Detail */
+        .ed-detail { flex:1 1 50%; min-height:0; overflow-y:auto; }
+        .ed-detail-head {
+            padding:6px 10px; color:#7ec8e3; font-size:11px; font-weight:500;
+            border-bottom:1px solid #1e2d44;
+        }
+
+        .ed-comp { margin:0 6px 3px; border:1px solid #2a3a5c; border-radius:4px; overflow:hidden; }
+        .ed-comp-off { opacity:0.45; }
+        .ed-comp-head {
+            padding:3px 8px; background:#1a2744; display:flex; align-items:center;
+            gap:5px; font-size:11px; color:#7ec8e3;
+        }
+        .ed-comp-head input[type=checkbox] { cursor:pointer; }
+        .ed-lock { font-size:10px; }
+
+        .ed-fields { padding:2px 0; }
+        .ed-field-row {
+            display:flex; align-items:center; padding:2px 8px;
+        }
+        .ed-field-label {
+            color:#888; font-size:10px; min-width:52px; text-align:right;
+            padding-right:8px; flex-shrink:0;
+        }
+        .ed-field-inputs { display:flex; gap:2px; flex:1; }
+        .ed-input, .ed-vec-input {
+            background:#0d1b33; color:#ddd; border:1px solid #2a3a5c;
+            padding:2px 5px; font-size:11px; border-radius:3px; font-family:monospace;
+            flex:1; min-width:0;
+        }
+        .ed-vec-input { width:46px; flex:none; }
+        .ed-input:focus, .ed-vec-input:focus { border-color:#4a8fc7; outline:none; }
+        .ed-input::-webkit-inner-spin-button,
+        .ed-input::-webkit-outer-spin-button { appearance:none; margin:0; }
+        .ed-input[type=number] { appearance:textfield; }
+
+        .ed-float-wrap {
+            background:#0d1b33; border:1px solid #2a3a5c; border-radius:3px;
+            flex:1; min-width:0; display:flex; align-items:center;
+        }
+        .ed-float-val {
+            padding:2px 5px; font-size:11px; font-family:monospace; color:#ddd;
+            cursor:ew-resize; user-select:none; width:100%; display:block;
+            text-align:center;
+        }
+        .ed-float-edit {
+            background:#0d1b33; color:#ddd; border:none;
+            padding:2px 5px; font-size:11px; border-radius:3px; font-family:monospace;
+            flex:1; min-width:0;
+        }
+        .ed-float-edit:focus { border-color:#4a8fc7; outline:none; }
+        .ed-float-edit::-webkit-inner-spin-button,
+        .ed-float-edit::-webkit-outer-spin-button { appearance:none; margin:0; }
+        .ed-float-wrap input[type=number] { appearance:textfield; }
+
+        /* Color field (role:"color") */
+        .ed-color-wrap { display:flex; align-items:center; gap:4px; flex:1; min-width:0; }
+        .ed-color-picker {
+            width:34px; height:22px; padding:0; border:1px solid #2a3a5c;
+            border-radius:3px; background:#0d1b33; cursor:pointer; flex-shrink:0;
+        }
+        .ed-color-picker::-webkit-color-swatch-wrapper { padding:1px; }
+        .ed-color-picker::-webkit-color-swatch { border:none; border-radius:2px; }
+        .ed-color-alpha { display:flex; align-items:center; flex:1; min-width:0; }
+        .ed-color-alpha-input { width:100%; accent-color:#4a8fc7; }
+
+        /* Asset reference field (role:"mesh"/"texture") — dropdown + drop zone */
+        .ed-asset-ref {
+            display:flex; align-items:center; gap:4px; flex:1; min-width:0;
+            border:1px solid #2a3a5c; border-radius:3px; padding:1px;
+            background:#0d1b33;
+        }
+        .ed-asset-ref .ed-select { flex:1; border:none; background:transparent; }
+        .ed-asset-drop-hint {
+            font-size:10px; color:#567; flex-shrink:0; padding:0 3px;
+        }
+        .ed-asset-ref.ed-asset-dragover {
+            border-color:#4a8fc7; background:#14233f; box-shadow:0 0 0 1px #4a8fc7 inset;
+        }
+        .ed-asset-ref.ed-asset-dragover .ed-asset-drop-hint { color:#7ec8e3; }
+
+        /* Vue editor panels */
+        .vue-panel-empty {
+            padding: 20px; color: #667; font-size: 12px; text-align: center;
+        }
+        .vue-panel { display:flex; flex-direction:column; height:100%; min-height:0; }
+
+        /* Light theme — toggled by body.theme-light (toolbar #btn-theme).
+           Overrides the chrome surfaces; inner panel content stays readable. */
+        body.theme-light { background: #d8dce4; }
+        body.theme-light #toolbar { background: #c8ccd4; border-color: #aab0bc; }
+        body.theme-light .tb-btn { background: #d0d4dc; color: #333; border-color: #b0b4bc; }
+        body.theme-light .tb-btn:hover:not(:disabled) { background: #c0c4cc; color: #000; }
+        body.theme-light .tb-title { color: #445; }
+        body.theme-light #sidebar { background: #e0e3ea; }
+        body.theme-light .editor-head { background: #c8ccd4; color: #222; }
+        body.theme-light .ed-detail { background: #eef0f4; }
+        body.theme-light .ed-comp { background: #eef0f4; border-color: #aab0bc; }
+        body.theme-light .ed-input, body.theme-light .ed-select, body.theme-light .ed-float-wrap, body.theme-light .ed-asset-ref {
+            background: #fff; color: #222; border-color: #aab0bc;
+        }
+        body.theme-light .ed-field-label, body.theme-light .ed-comp-head { color: #445; }
+        body.theme-light #asset-bottom { background: #c8ccd4; border-color: #aab0bc; }
+    </style>
+  <script type="module" crossorigin src="/assets/main-DqB5eCI_.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/computeBindings-HL33xbe8.js">
+  <link rel="modulepreload" crossorigin href="/assets/AppHost-CJ5VLpyT.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-_OTGuET-.css">
+<script>(function(){try{var v=JSON.parse(localStorage.getItem('sl-site-auth'));if(v&&Date.now()-v.t<6048e5)return}catch(e){}location.replace('/')}())</script></head>
+<body>
+    <div id="app">
+        <div id="toolbar">
+            <!-- Undo/redo buttons are built by EditorUILayer.mount() -->
+        </div>
+        <div id="main">
+            <div id="viewport-col">
+                <div id="canvas-wrap">
+                    <div id="info">ShaderLab-WebGPU | WebGPU</div>
+                    <div id="error"></div>
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div id="asset-resizer" title="Drag to resize"></div>
+                <div id="asset-bottom">
+                    <!-- Asset view mounts here (Vue) -->
+                    <div id="tab-assets" class="tab-panel"></div>
+                </div>
+            </div>
+            <div id="sidebar-resizer" title="Drag to resize"></div>
+            <div id="sidebar">
+                <!-- Tab shell + panels are built by EditorUILayer.mount() -->
+            </div>
+        </div>
+        <div id="ui-container"></div>
+    </div>
+</body>
+</html>

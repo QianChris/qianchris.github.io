@@ -1,0 +1,29 @@
+{
+  "LeftCamera": {
+    "Transform": { "position": [0, 0.8, 3.8], "rotation": [-0.13, 0, 0, 0.991], "scale": [1, 1, 1] },
+    "Camera": { "fov": 45, "near": 0.1, "far": 100, "active": 1, "viewport": [0, 0, 0.5, 1] },
+    "OrbitCameraComponent": { "rotSpeed": 3.0, "panSpeed": 1.5, "zoomSpeed": 0.15, "minDistance": 1.0, "maxDistance": 50.0, "viewport": -1 }
+  },
+  "RightCamera": {
+    "Transform": { "position": [3.8, 0.8, 0.001], "rotation": [0, 0.707, 0, 0.707], "scale": [1, 1, 1] },
+    "Camera": { "fov": 45, "near": 0.1, "far": 100, "active": 1, "viewport": [0.5, 0, 0.5, 1] },
+    "OrbitCameraComponent": { "rotSpeed": 3.0, "panSpeed": 1.5, "zoomSpeed": 0.15, "minDistance": 1.0, "maxDistance": 50.0, "viewport": 1 }
+  },
+  "Environment": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "EnvironmentComponent": { "ambientLight": [0.2, 0.2, 0.25, 1.5], "clearColor": [0.05, 0.05, 0.08, 1.0] }
+  },
+  "SunLight": {
+    "Transform": { "position": [0, 5, 0], "rotation": [-0.3, -0.2, 0.05, 0.93], "scale": [1, 1, 1] },
+    "LightComponent": { "type": "directional", "color": [1, 0.95, 0.9], "intensity": 4.0, "castShadow": true, "shadowOrtho": 4, "shadowNear": 0.5, "shadowFar": 30 }
+  },
+  "PointLight": {
+    "Transform": { "position": [2.2, 1.6, 2.0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "LightComponent": { "type": "point", "color": [1.0, 0.75, 0.55], "intensity": 6.0, "range": 8.0, "castShadow": true, "shadowNear": 0.3, "shadowFar": 8.0, "shadowStrategy": "cube-map" }
+  },
+  "Ground": {
+    "Transform": { "position": [0, -1.5, 0], "rotation": [0, 0, 0, 1], "scale": [8, 1, 8] },
+    "MeshComponent": { "mesh": "pbr_plane" },
+    "PbrMaterial": { "baseColor": [0.5, 0.5, 0.55, 1], "metallic": 0.0, "roughness": 0.8, "ao": 1, "emissive": [0, 0, 0], "shadowCast": false, "shadowReceive": true }
+  }
+}

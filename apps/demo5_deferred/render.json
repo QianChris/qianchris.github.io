@@ -1,0 +1,20 @@
+{
+  "name": "DeferredRenderGraph",
+  "clearColor": [0.03, 0.03, 0.05, 1.0],
+  "phases": {
+    "Shadow": [
+      { "name": "ShadowMap", "pipeline": "core:pipelines/ShadowPipeline.json", "enabled": true }
+    ],
+    "GBuffer": [
+      { "name": "GBuffer", "pipeline": "pipelines/GBufferPipeline.json", "enabled": true }
+    ],
+    "Opaque": [
+      { "name": "DeferredLight", "pipeline": "pipelines/DeferredLightPipeline.json", "enabled": true },
+      { "name": "Grid",        "pipeline": "core:pipelines/GridPipeline.json",        "enabled": true },
+      { "name": "PhysicsDebug",  "pipeline": "physics:pipelines/PhysicsDebugPipeline.json", "enabled": true }
+    ],
+    "Transparent": [],
+    "Skybox": [],
+    "Postprocess": []
+  }
+}

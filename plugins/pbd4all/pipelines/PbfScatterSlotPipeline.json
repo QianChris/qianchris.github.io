@@ -1,0 +1,6 @@
+{
+  "name": "PbfScatterSlotPipeline",
+  "compute": { "shader": "../shaders/PbfScatterSlot.wgsl", "entryPoint": "main" },
+  "workgroupSize": 256,
+  "bindLayout": ["pbd4allScatterSlot"]
+}

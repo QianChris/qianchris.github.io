@@ -1,0 +1,16 @@
+{
+  "default": {
+    "addressModeU": "repeat",
+    "addressModeV": "repeat",
+    "magFilter": "linear",
+    "minFilter": "linear"
+  },
+  "shadow": {
+    "addressModeU": "clamp-to-edge",
+    "addressModeV": "clamp-to-edge",
+    "addressModeW": "clamp-to-edge",
+    "magFilter": "linear",
+    "minFilter": "linear",
+    "compare": "less"
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "GameStateComponent",
+    "fields": {
+      "ballSpeed":   { "type": "f32", "default": 18.0 },
+      "ballRadius":  { "type": "f32", "default": 0.35 },
+      "spawnHeight": { "type": "f32", "default": 6.0 },
+      "burstCount":  { "type": "u32", "default": 0 },
+      "score":       { "type": "u32", "default": 0 }
+    }
+  }
+]

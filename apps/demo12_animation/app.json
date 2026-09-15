@@ -1,0 +1,7 @@
+{
+  "name": "demo12_animation",
+  "plugins": ["animation"],
+  "scene": "scene.json",
+  "render": "render.json",
+  "gltf": ["../../assets/models/CesiumMan.glb"]
+}

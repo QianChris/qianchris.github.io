@@ -1,0 +1,31 @@
+{
+  "name": "MainRenderGraph",
+  "clearColor": [0.06, 0.06, 0.14, 1.0],
+  "phases": {
+    "Preprocess": [],
+    "Compute": [],
+    "Opaque": [
+      { "name": "Grid",        "pipeline": "core:pipelines/GridPipeline.json",        "enabled": true },
+      { "name": "Mesh",        "pipeline": "core:pipelines/TestMeshPipeline.json",    "enabled": true },
+      { "name": "PbrSolid",    "pipeline": "core:pipelines/PbrPipeline.json",         "enabled": true },
+      { "name": "Edge",        "pipeline": "core:pipelines/TestEdgePipeline.json",    "enabled": true },
+      { "name": "Point",       "pipeline": "core:pipelines/TestPointPipeline.json",   "enabled": true },
+      { "name": "PhysicsDebug","pipeline": "physics:pipelines/PhysicsDebugPipeline.json","enabled": true }
+    ],
+    "Transparent": [
+      {
+        "name": "Particles",
+        "pipeline": "particles:pipelines/ParticlePipeline.json",
+        "enabled": true
+      }
+    ],
+    "Skybox": [
+      { "name": "Skybox", "pipeline": "core:pipelines/SkyboxPipeline.json", "enabled": true }
+    ],
+    "Postprocess": [
+      { "name": "Tint",      "pipeline": "core:pipelines/TintPipeline.json",      "enabled": false, "params": { "tint": [1.0, 0.6, 0.4, 1.0] }, "input": "scene", "output": "ppA" },
+      { "name": "Invert",    "pipeline": "core:pipelines/InvertPipeline.json",    "enabled": false, "input": "ppA", "output": "ppB" },
+      { "name": "Greyscale", "pipeline": "core:pipelines/GreyscalePipeline.json", "enabled": false, "input": "ppB", "output": "screen" }
+    ]
+  }
+}

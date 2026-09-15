@@ -1,0 +1,12 @@
+[
+    { "name": "input" },
+    { "name": "orbitCamera" },
+    { "name": "script" },
+    { "name": "physics" },
+    { "name": "splatPhysics" },
+    { "name": "camera" },
+    { "name": "light" },
+    { "name": "animation" },
+    { "name": "gaussianSplat" },
+    { "name": "render" }
+]

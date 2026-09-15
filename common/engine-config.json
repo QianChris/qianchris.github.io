@@ -1,0 +1,12 @@
+{
+    "dataRoot": "/common",
+    "appsRoot": "/apps",
+    "defaultApp": "demo1",
+    "renderScriptsSubdir": "scripts",
+    "computeTgs": 64,
+    "alphaMode": "premultiplied",
+    "systemOrder": ["input", "script", "physics", "transform", "camera", "light", "animation", "render"],
+    "scriptHooks": ["init", "update"],
+    "pluginsRoot": "/plugins",
+    "plugins": ["core", "physics", "particles", "sprite"]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "TestEdgePipeline",
+  "vertex": { "shader": "../shaders/TestEdge.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/TestEdge.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "vertexLayouts": [
+    {
+      "arrayStride": 8, "stepMode": "vertex",
+      "attributes": [{ "format": "float32x2", "offset": 0, "shaderLocation": 0 }]
+    },
+    {
+      "arrayStride": 24, "stepMode": "instance",
+      "attributes": [
+        { "format": "float32x3", "offset": 0, "shaderLocation": 1 },
+        { "format": "float32x3", "offset": 12, "shaderLocation": 2 }
+      ]
+    }
+  ],
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less-equal" },
+  "bindLayout": ["frame", "object"],
+  "renderer": {
+    "query": ["MeshComponent", "TestEdgeRender"],
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "tag": "TestEdgeRender",
+    "geometry": { "steps": [{ "vertexBuffers": [{ "slot": 0, "source": "vbo", "vbo": "quad" }, { "slot": 1, "source": "meshField", "mesh": "MeshComponent.mesh", "field": "edgeBuffer" }], "draw": { "type": "draw", "vertexCount": 6, "instanceCountField": "MeshComponent.edgeCount" } }] },
+    "bindGroups": [
+      { "group": 1, "uniform": { "layoutRef": "perEntity", "writes": [
+        { "member": "model",  "value": "transform.model" },
+        { "member": "color",  "value": "tag.color" },
+        { "member": "params", "value": "script:params.edge" }
+      ] } }
+    ]
+  }
+}

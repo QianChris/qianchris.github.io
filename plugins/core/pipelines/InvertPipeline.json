@@ -1,0 +1,12 @@
+{
+  "name": "Invert",
+  "vertex": { "shader": "../shaders/Invert.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/Invert.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": false,
+  "bindLayout": ["fullscreen"],
+  "renderer": {
+    "phase": "Postprocess",
+    "geometry": { "steps": [{ "draw": { "type": "draw", "vertexCount": 3 } }] }
+  }
+}

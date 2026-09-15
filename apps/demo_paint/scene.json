@@ -1,0 +1,18 @@
+{
+  "MainCamera": {
+    "Transform": { "position": [0, 0, 4], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "Camera": { "fov": 45, "near": 0.1, "far": 100, "active": 1, "viewport": [0, 0, 1, 1] }
+  },
+  "CanvasLeft": {
+    "Transform": { "position": [-1.3, 0, 0], "rotation": [0.7071, 0, 0, 0.7071], "scale": [1.5, 1, 1.5] },
+    "MeshComponent": { "mesh": "pbr_plane" },
+    "CanvasComponent": { "width": 512, "height": 512 },
+    "BrushComponent": { "color": [1, 0, 0, 1], "radius": 14, "opacity": 1 }
+  },
+  "CanvasRight": {
+    "Transform": { "position": [1.3, 0, 0], "rotation": [0.7071, 0, 0, 0.7071], "scale": [1.5, 1, 1.5] },
+    "MeshComponent": { "mesh": "pbr_plane" },
+    "CanvasComponent": { "width": 512, "height": 512 },
+    "BrushComponent": { "color": [0, 0.2, 1, 1], "radius": 20, "opacity": 0.6 }
+  }
+}

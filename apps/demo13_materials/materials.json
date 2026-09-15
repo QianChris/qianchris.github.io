@@ -1,0 +1,6 @@
+{
+  "Gold":    { "baseColor": [1.0, 0.78, 0.34, 1.0], "metallic": 1.0, "roughness": 0.25, "ao": 1.0, "emissive": [0, 0, 0], "shadowCast": 1, "shadowReceive": 1 },
+  "Silver":  { "baseColor": [0.92, 0.94, 0.96, 1.0], "metallic": 1.0, "roughness": 0.35, "ao": 1.0, "emissive": [0, 0, 0], "shadowCast": 1, "shadowReceive": 1 },
+  "Copper":  { "baseColor": [0.95, 0.64, 0.49, 1.0], "metallic": 1.0, "roughness": 0.45, "ao": 1.0, "emissive": [0, 0, 0], "shadowCast": 1, "shadowReceive": 1 },
+  "Plastic": { "baseColor": [0.9, 0.1, 0.1, 1.0], "metallic": 0.0, "roughness": 0.6, "ao": 1.0, "emissive": [0, 0, 0], "shadowCast": 1, "shadowReceive": 1 }
+}

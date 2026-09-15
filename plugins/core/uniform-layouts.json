@@ -1,0 +1,922 @@
+{
+  "perEntity": [
+    {
+      "name": "model",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "color",
+      "type": "vec4f"
+    },
+    {
+      "name": "params",
+      "type": "vec4f"
+    }
+  ],
+  "pbrObject": [
+    {
+      "name": "model",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "normalMatrix",
+      "type": "mat3x3f"
+    },
+    {
+      "name": "entityId",
+      "type": "u32"
+    }
+  ],
+  "pbrMaterial": [
+    {
+      "name": "baseColor",
+      "type": "vec4f"
+    },
+    {
+      "name": "matParams",
+      "type": "vec4f"
+    },
+    {
+      "name": "emissive",
+      "type": "vec4f"
+    }
+  ],
+  "spriteEntity": [
+    {
+      "name": "model",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "animParams",
+      "type": "vec4f"
+    }
+  ],
+  "camera": [
+    {
+      "name": "vp",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "ivp",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "pos",
+      "type": "vec4f"
+    },
+    {
+      "name": "view",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "proj",
+      "type": "mat4x4f"
+    }
+  ],
+  "timeInput": [
+    {
+      "name": "time",
+      "type": "f32"
+    },
+    {
+      "name": "dt",
+      "type": "f32"
+    },
+    {
+      "name": "frame",
+      "type": "f32"
+    },
+    {
+      "name": "_pad",
+      "type": "f32"
+    },
+    {
+      "name": "mouse",
+      "type": "vec4f"
+    }
+  ],
+  "light": [
+    {
+      "name": "ambient",
+      "type": "vec4f"
+    },
+    {
+      "name": "count",
+      "type": "vec4f"
+    },
+    {
+      "name": "light0_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light0_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light0_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light0_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light1_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light1_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light1_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light1_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light2_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light2_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light2_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light2_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light3_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light3_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light3_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light3_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light4_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light4_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light4_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light4_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light5_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light5_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light5_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light5_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light6_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light6_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light6_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light6_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light7_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light7_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light7_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light7_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light8_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light8_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light8_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light8_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light9_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light9_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light9_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light9_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light10_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light10_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light10_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light10_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light11_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light11_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light11_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light11_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light12_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light12_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light12_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light12_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light13_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light13_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light13_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light13_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light14_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light14_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light14_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light14_params",
+      "type": "vec4f"
+    },
+    {
+      "name": "light15_posOrDir",
+      "type": "vec4f"
+    },
+    {
+      "name": "light15_color",
+      "type": "vec4f"
+    },
+    {
+      "name": "light15_viewProj",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "light15_params",
+      "type": "vec4f"
+    }
+  ],
+  "pointShadowFaces": [
+    {
+      "name": "face0",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face1",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face2",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face3",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face4",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face5",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face6",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face7",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face8",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face9",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face10",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face11",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face12",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face13",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face14",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face15",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face16",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face17",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face18",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face19",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face20",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face21",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face22",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face23",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face24",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face25",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face26",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face27",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face28",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face29",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face30",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face31",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face32",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face33",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face34",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face35",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face36",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face37",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face38",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face39",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face40",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face41",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face42",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face43",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face44",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face45",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face46",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face47",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face48",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face49",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face50",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face51",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face52",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face53",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face54",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face55",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face56",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face57",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face58",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face59",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face60",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face61",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face62",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face63",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face64",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face65",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face66",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face67",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face68",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face69",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face70",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face71",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face72",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face73",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face74",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face75",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face76",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face77",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face78",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face79",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face80",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face81",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face82",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face83",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face84",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face85",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face86",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face87",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face88",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face89",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face90",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face91",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face92",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face93",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face94",
+      "type": "mat4x4f"
+    },
+    {
+      "name": "face95",
+      "type": "mat4x4f"
+    }
+  ],
+  "shadowPass": [
+    {
+      "name": "lightIdx",
+      "type": "u32"
+    },
+    {
+      "name": "face",
+      "type": "u32"
+    }
+  ],
+  "particleLayout": [
+    {
+      "name": "p0",
+      "type": "vec4f"
+    },
+    {
+      "name": "p1",
+      "type": "vec4f"
+    },
+    {
+      "name": "cs",
+      "type": "vec4f"
+    },
+    {
+      "name": "ce",
+      "type": "vec4f"
+    },
+    {
+      "name": "ss",
+      "type": "vec4f"
+    }
+  ],
+  "particleEmit": [
+    {
+      "name": "origin",
+      "type": "vec4f"
+    },
+    {
+      "name": "direction",
+      "type": "vec4f"
+    },
+    {
+      "name": "shapeR",
+      "type": "vec4f"
+    },
+    {
+      "name": "half",
+      "type": "vec4f"
+    },
+    {
+      "name": "life",
+      "type": "vec4f"
+    },
+    {
+      "name": "startColor",
+      "type": "vec4f"
+    },
+    {
+      "name": "endColor",
+      "type": "vec4f"
+    },
+    {
+      "name": "info",
+      "type": "vec4f"
+    }
+  ],
+  "particleSim": [
+    {
+      "name": "header",
+      "type": "vec4f"
+    },
+    {
+      "name": "gravity",
+      "type": "vec4f"
+    },
+    {
+      "name": "field0_posType",
+      "type": "vec4f"
+    },
+    {
+      "name": "field0_dirStr",
+      "type": "vec4f"
+    },
+    {
+      "name": "field0_shape",
+      "type": "vec4f"
+    },
+    {
+      "name": "field1_posType",
+      "type": "vec4f"
+    },
+    {
+      "name": "field1_dirStr",
+      "type": "vec4f"
+    },
+    {
+      "name": "field1_shape",
+      "type": "vec4f"
+    },
+    {
+      "name": "field2_posType",
+      "type": "vec4f"
+    },
+    {
+      "name": "field2_dirStr",
+      "type": "vec4f"
+    },
+    {
+      "name": "field2_shape",
+      "type": "vec4f"
+    },
+    {
+      "name": "field3_posType",
+      "type": "vec4f"
+    },
+    {
+      "name": "field3_dirStr",
+      "type": "vec4f"
+    },
+    {
+      "name": "field3_shape",
+      "type": "vec4f"
+    },
+    {
+      "name": "field4_posType",
+      "type": "vec4f"
+    },
+    {
+      "name": "field4_dirStr",
+      "type": "vec4f"
+    },
+    {
+      "name": "field4_shape",
+      "type": "vec4f"
+    },
+    {
+      "name": "field5_posType",
+      "type": "vec4f"
+    },
+    {
+      "name": "field5_dirStr",
+      "type": "vec4f"
+    },
+    {
+      "name": "field5_shape",
+      "type": "vec4f"
+    },
+    {
+      "name": "field6_posType",
+      "type": "vec4f"
+    },
+    {
+      "name": "field6_dirStr",
+      "type": "vec4f"
+    },
+    {
+      "name": "field6_shape",
+      "type": "vec4f"
+    },
+    {
+      "name": "field7_posType",
+      "type": "vec4f"
+    },
+    {
+      "name": "field7_dirStr",
+      "type": "vec4f"
+    },
+    {
+      "name": "field7_shape",
+      "type": "vec4f"
+    }
+  ]
+}

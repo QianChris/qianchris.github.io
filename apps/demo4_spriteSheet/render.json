@@ -1,0 +1,10 @@
+{
+  "name": "SpriteRenderGraph",
+  "clearColor": [0.02, 0.02, 0.05, 1.0],
+  "phases": {
+    "Opaque": [],
+    "Transparent": [
+      { "name": "Sprites", "pipeline": "sprite:pipelines/SpritePipeline.json", "enabled": true }
+    ]
+  }
+}

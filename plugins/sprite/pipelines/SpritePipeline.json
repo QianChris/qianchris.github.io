@@ -1,0 +1,32 @@
+{
+  "name": "SpritePipeline",
+  "vertex": { "shader": "../shaders/Sprite.wgsl", "entryPoint": "vs", "input": "pbr_static" },
+  "fragment": { "shader": "../shaders/Sprite.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less" },
+  "blend": "alpha",
+  "bindLayout": ["frame", "object", "materialSkybox"],
+  "renderer": {
+    "query": ["MeshComponent", "SpriteSheetComponent", "SpriteAnimationComponent"],
+    "phase": "Transparent",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "steps": [{ "vertexBuffers": [{ "slot": 0, "source": "meshSlots", "mesh": "MeshComponent.mesh" }], "indexBuffer": { "mesh": "MeshComponent.mesh" }, "draw": { "type": "drawIndexed", "countField": "MeshComponent.indexCount" } }] },
+    "bindGroups": [
+      {
+        "group": 1,
+        "uniform": {
+          "layoutRef": "spriteEntity",
+          "writes": [
+            { "member": "model",      "value": "transform.model" },
+            { "member": "animParams", "value": "pack:SpriteAnimationComponent.row,SpriteAnimationComponent.frame,SpriteSheetComponent.columns,SpriteSheetComponent.rows" }
+          ]
+        }
+      },
+      {
+        "group": 2,
+        "samplers": [ { "binding": 0, "name": "default" } ],
+        "textures": [ { "binding": 1, "source": "SpriteSheetComponent.texHandle", "fallback": "white" } ]
+      }
+    ]
+  }
+}

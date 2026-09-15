@@ -1,0 +1,6 @@
+{
+  "name": "PbfLambdaPipeline",
+  "compute": { "shader": "../shaders/PbfLambda.wgsl", "entryPoint": "main" },
+  "workgroupSize": 256,
+  "bindLayout": ["pbd4allLambda"]
+}

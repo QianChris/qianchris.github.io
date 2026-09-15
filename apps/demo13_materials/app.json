@@ -1,0 +1,6 @@
+{
+  "name": "demo13_materials",
+  "plugins": ["materials"],
+  "scene": "scene.json",
+  "render": "render.json"
+}

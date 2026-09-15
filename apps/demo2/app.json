@@ -1,0 +1,6 @@
+{
+  "name": "demo2",
+  "components": ["components.json"],
+  "scene": "scene.json",
+  "render": "render.json"
+}

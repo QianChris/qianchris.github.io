@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "noEmit": true,
+        "isolatedModules": true,
+        "allowImportingTsExtensions": true,
+        "skipLibCheck": true,
+        "types": ["@webgpu/types", "vite/client"],
+        "baseUrl": ".",
+        "paths": {
+            "@shaderlab/api": ["../../src/api.ts"]
+        }
+    },
+    "include": ["./**/*.ts", "../../src/types/bitecs-legacy.d.ts"]
+}

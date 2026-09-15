@@ -1,0 +1,6 @@
+{
+  "name": "PbfXsphPipeline",
+  "compute": { "shader": "../shaders/PbfXsph.wgsl", "entryPoint": "main" },
+  "workgroupSize": 256,
+  "bindLayout": ["pbd4allXsph"]
+}

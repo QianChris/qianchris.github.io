@@ -1,0 +1,214 @@
+[
+  {
+    "name": "NameComponent",
+    "mandatory": true,
+    "fields": { "name": { "type": "string", "default": "Unnamed" } }
+  },
+  {
+    "name": "Transform",
+    "fields": {
+      "position": { "type": "vec3", "default": [0, 0, 0] },
+      "rotation": { "type": "vec4", "default": [0, 0, 0, 1] },
+      "scale":    { "type": "vec3", "default": [1, 1, 1] },
+      "parent":   { "type": "string", "default": "" }
+    }
+  },
+  {
+    "name": "GlobalTransform",
+    "mandatory": true,
+    "fields": {
+      "col0": { "type": "vec4", "default": [1, 0, 0, 0] },
+      "col1": { "type": "vec4", "default": [0, 1, 0, 0] },
+      "col2": { "type": "vec4", "default": [0, 0, 1, 0] },
+      "col3": { "type": "vec4", "default": [0, 0, 0, 1] }
+    }
+  },
+  {
+    "name": "MeshComponent",
+    "fields": {
+      "mesh": { "type": "string", "default": "triangle" },
+      "hPos": { "type": "u32", "default": 0 },
+      "hNormal": { "type": "u32", "default": 0 },
+      "hUV": { "type": "u32", "default": 0 },
+      "hJointIndex": { "type": "u32", "default": 0 },
+      "hJointWeight": { "type": "u32", "default": 0 },
+      "hTangent": { "type": "u32", "default": 0 },
+      "hColor": { "type": "u32", "default": 0 },
+      "hIndex": { "type": "u32", "default": 0 },
+      "vertexCount": { "type": "u32", "default": 0 },
+      "indexCount": { "type": "u32", "default": 0 },
+      "edgeCount": { "type": "u32", "default": 0 },
+      "pointCount": { "type": "u32", "default": 0 },
+      "indexFormat": { "type": "u32", "default": 0 }
+    }
+  },
+  {
+    "name": "TestMeshRender",
+    "fields": { "color": { "type": "vec4", "default": [1, 0.2, 0.3, 1], "role": "color" } }
+  },
+  {
+    "name": "TestEdgeRender",
+    "fields": {
+      "color":     { "type": "vec4", "default": [0.2, 0.8, 0.3, 1], "role": "color" },
+      "lineWidth": { "type": "f32", "default": 3, "role": "extra" }
+    }
+  },
+  {
+    "name": "TestPointRender",
+    "fields": {
+      "color":     { "type": "vec4", "default": [0.2, 0.4, 1, 1], "role": "color" },
+      "pointSize": { "type": "f32", "default": 10, "role": "extra" }
+    }
+  },
+  {
+    "name": "Camera",
+    "fields": {
+      "fov":    { "type": "f32", "default": 60 },
+      "near":   { "type": "f32", "default": 0.1 },
+      "far":    { "type": "f32", "default": 100 },
+      "active": { "type": "bool", "default": false },
+      "viewport": { "type": "vec4", "default": [0, 0, 1, 1], "role": "viewport" }
+    }
+  },
+  {
+    "name": "ParticleSystemComponent",
+    "fields": {
+      "maxParticles": { "type": "u32", "default": 20000 },
+      "gravity":      { "type": "vec3", "default": [0, -1.5, 0] },
+      "drag":         { "type": "f32", "default": 0.1 }
+    }
+  },
+  {
+    "name": "EmitterComponent",
+    "fields": {
+      "system":       { "type": "string", "default": "" },
+      "enabled":      { "type": "bool", "default": true },
+      "shape":        { "type": "string", "default": "point", "options": ["point", "sphere", "box"] },
+      "radius":       { "type": "f32", "default": 0.3 },
+      "halfExtents":  { "type": "vec3", "default": [0.5, 0.5, 0.5] },
+      "rate":         { "type": "f32", "default": 400 },
+      "direction":    { "type": "vec3", "default": [0, 1, 0] },
+      "spread":       { "type": "f32", "default": 0.4 },
+      "speedMin":     { "type": "f32", "default": 1.0 },
+      "speedMax":     { "type": "f32", "default": 2.5 },
+      "lifeMin":      { "type": "f32", "default": 1.5 },
+      "lifeMax":      { "type": "f32", "default": 3.0 },
+      "startSize":    { "type": "f32", "default": 0.12 },
+      "endSize":      { "type": "f32", "default": 0.0 },
+      "gravityScale": { "type": "f32", "default": 1.0 },
+      "startColor":   { "type": "vec4", "default": [1.0, 0.8, 0.3, 1.0] },
+      "endColor":     { "type": "vec4", "default": [1.0, 0.1, 0.0, 0.0] }
+    }
+  },
+  {
+    "name": "ForceFieldComponent",
+    "fields": {
+      "system":    { "type": "string", "default": "" },
+      "enabled":   { "type": "bool", "default": true },
+      "type":      { "type": "string", "default": "point", "options": ["point", "vortex", "directional", "drag"] },
+      "strength":  { "type": "f32", "default": 4.0 },
+      "radius":    { "type": "f32", "default": 4.0 },
+      "falloff":   { "type": "f32", "default": 1.0 },
+      "direction": { "type": "vec3", "default": [0, 1, 0] }
+    }
+  },
+  {
+    "name": "ScriptComponent",
+    "fields": {
+      "script":  { "type": "string", "default": "scripts/spin.js" },
+      "enabled": { "type": "bool", "default": true }
+    }
+  },
+  {
+    "name": "PbrMaterial",
+    "fields": {
+      "baseColor": { "type": "vec4", "default": [1, 1, 1, 1] },
+      "metallic":  { "type": "f32", "default": 0.0 },
+      "roughness": { "type": "f32", "default": 0.5 },
+      "ao":        { "type": "f32", "default": 1.0 },
+      "emissive":  { "type": "vec3", "default": [0, 0, 0] },
+      "texBaseColor":     { "type": "u32", "default": 0 },
+      "texMetalRough":    { "type": "u32", "default": 0 },
+      "texOcclusion":     { "type": "u32", "default": 0 },
+      "texEmissive":      { "type": "u32", "default": 0 },
+      "texNormal":        { "type": "u32", "default": 0 },
+    "shadowCast":       { "type": "bool", "default": true },
+    "shadowReceive":    { "type": "bool", "default": true },
+    "material":         { "type": "string", "default": "" }
+  }
+},
+{
+  "name": "PrefabComponent",
+  "fields": {
+    "prefab":          { "type": "string", "default": "" },
+    "overrideFields":  { "type": "string", "default": "" }
+  }
+},
+  {
+    "name": "EnvironmentComponent",
+    "fields": {
+      "ambientLight":   { "type": "vec4", "default": [0.15, 0.15, 0.2, 1.0] },
+      "clearColor":     { "type": "vec4", "default": [0.06, 0.06, 0.14, 1.0] }
+    }
+  },
+  {
+    "name": "LightComponent",
+    "fields": {
+      "type":        { "type": "string", "default": "directional", "options": ["directional", "point"] },
+      "color":       { "type": "vec3", "default": [1, 1, 1] },
+      "intensity":   { "type": "f32", "default": 3.0 },
+      "range":       { "type": "f32", "default": 20.0 },
+      "castShadow":  { "type": "bool", "default": false },
+      "shadowOrtho": { "type": "f32", "default": 10.0 },
+      "shadowNear":  { "type": "f32", "default": 0.1 },
+      "shadowFar":   { "type": "f32", "default": 50.0 },
+      "shadowStrategy": { "type": "string", "default": "origin-look", "options": ["origin-look", "follow-entity", "cube-map"] }
+    }
+  },
+  {
+    "name": "PhysicsControllerComponent",
+    "fields": {
+      "enabled":     { "type": "bool", "default": true },
+      "gravity":     { "type": "vec3", "default": [0, -9.81, 0] },
+      "timeStep":    { "type": "f32", "default": 0.0166667 },
+      "maxSubsteps": { "type": "u32", "default": 4 },
+      "debugDraw":   { "type": "bool", "default": false },
+      "groundEnabled": { "type": "bool", "default": true },
+      "groundHeight":  { "type": "f32", "default": 0 },
+      "groundHalfExtent": { "type": "f32", "default": 500 },
+      "groundThickness":  { "type": "f32", "default": 0.05 }
+    }
+  },
+  {
+    "name": "RigidBodyComponent",
+    "fields": {
+      "bodyType":       { "type": "string", "default": "dynamic", "options": ["dynamic", "fixed", "kinematicPosition", "kinematicVelocity"] },
+      "linearDamping":  { "type": "f32", "default": 0 },
+      "angularDamping": { "type": "f32", "default": 0 },
+      "gravityScale":   { "type": "f32", "default": 1 },
+      "ccd":            { "type": "bool", "default": false },
+      "lockRotation":   { "type": "bool", "default": false },
+      "linearVelocity": { "type": "vec3", "default": [0, 0, 0] },
+      "angularVelocity":{ "type": "vec3", "default": [0, 0, 0] }
+    }
+  },
+  {
+    "name": "ColliderComponent",
+    "fields": {
+      "enabled":     { "type": "bool", "default": true },
+      "shape":       { "type": "string", "default": "cuboid", "options": ["cuboid", "ball", "capsule"] },
+      "halfExtents": { "type": "vec3", "default": [0.5, 0.5, 0.5] },
+      "radius":      { "type": "f32", "default": 0.5 },
+      "halfHeight":  { "type": "f32", "default": 0.5 },
+      "density":     { "type": "f32", "default": 1 },
+      "friction":    { "type": "f32", "default": 0.5 },
+      "restitution": { "type": "f32", "default": 0 },
+      "isSensor":    { "type": "bool", "default": false },
+      "layer":       { "type": "u32", "default": 1 },
+      "mask":        { "type": "u32", "default": 65535 },
+      "attachTo":    { "type": "string", "default": "" },
+      "offset":      { "type": "vec3", "default": [0, 0, 0] },
+      "colliderRot": { "type": "vec4", "default": [0, 0, 0, 1] }
+    }
+  }
+]

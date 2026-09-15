@@ -1,0 +1,14 @@
+{
+  "pos3": {
+    "slots": ["Pos"]
+  },
+  "pbr_static": {
+    "slots": ["Pos", "Normal", "UV", "Tangent"]
+  },
+  "skinned": {
+    "slots": ["Pos", "Normal", "UV", "JointIndex", "JointWeight", "Tangent"]
+  },
+  "pos_color": {
+    "slots": ["Pos", "Color"]
+  }
+}
