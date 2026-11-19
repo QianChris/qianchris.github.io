@@ -1,0 +1,6 @@
+{
+  "name": "PbfScatterMovePipeline",
+  "compute": { "shader": "../shaders/PbfScatterMove.wgsl", "entryPoint": "main" },
+  "workgroupSize": 256,
+  "bindLayout": ["pbd4allScatterMove"]
+}

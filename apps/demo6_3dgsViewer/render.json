@@ -1,0 +1,18 @@
+{
+  "name": "SplatRenderGraph",
+  "phases": {
+    "Opaque": [
+      { "name": "Grid",     "pipeline": "core:pipelines/GridPipeline.json",     "enabled": true },
+      { "name": "PbrSolid", "pipeline": "core:pipelines/PbrPipeline.json",      "enabled": true }
+    ],
+    "Transparent": [
+      { "name": "Splat", "pipeline": "pipelines/GaussianSplatPipeline.json", "enabled": true },
+      { "name": "Particles", "pipeline": "particles:pipelines/ParticlePipeline.json", "enabled": true }
+    ],
+    "Skybox": [],
+    "Postprocess": [],
+    "UI": [
+      { "name": "PhysicsDebug", "pipeline": "physics:pipelines/PhysicsDebugPipeline.json", "enabled": true }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "ParticlePipeline",
+  "vertex": { "shader": "../shaders/Particle.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/Particle.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "blend": "additive",
+  "vertexLayouts": [
+    {
+      "arrayStride": 8, "stepMode": "vertex",
+      "attributes": [{ "format": "float32x2", "offset": 0, "shaderLocation": 0 }]
+    }
+  ],
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": false, "depthCompare": "less-equal" },
+  "bindLayout": ["frame", "particleDraw"],
+  "renderer": {
+    "query": ["ParticleSystemComponent"],
+    "phase": "Transparent",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "hook": "particles.draw" },
+    "compute": { "script": "particles.simulate" },
+    "aux": {
+      "emit": "particles:pipelines/ParticleEmitPipeline.json",
+      "simulate": "particles:pipelines/ParticleSimPipeline.json"
+    }
+  }
+}

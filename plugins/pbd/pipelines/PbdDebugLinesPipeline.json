@@ -1,0 +1,14 @@
+{
+  "name": "PbdDebugLinesPipeline",
+  "vertex": { "shader": "../shaders/PbdDebugLines.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/PbdDebugLines.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "line-list" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": false, "depthCompare": "always" },
+  "bindLayout": ["frame", "pbdDebugLines"],
+  "renderer": {
+    "query": ["PbdSoftBodyComponent"],
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "hook": "pbd.debug" }
+  }
+}

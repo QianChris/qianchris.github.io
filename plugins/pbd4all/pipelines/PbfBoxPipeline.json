@@ -1,0 +1,14 @@
+{
+  "name": "PbfBoxPipeline",
+  "vertex": { "shader": "../shaders/PbfBox.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/PbfBox.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "line-list" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less" },
+  "bindLayout": ["frame", "pbd4allBox"],
+  "renderer": {
+    "query": ["PbfFluidComponent"],
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "hook": "pbd4all.box" }
+  }
+}

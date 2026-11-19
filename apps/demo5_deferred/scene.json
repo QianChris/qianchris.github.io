@@ -1,0 +1,1667 @@
+{
+  "MainCamera": {
+    "Transform": {
+      "position": [
+        0,
+        5,
+        8
+      ],
+      "rotation": [
+        -0.28,
+        0,
+        0,
+        0.96
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Camera": {
+      "fov": 50,
+      "near": 0.1,
+      "far": 100,
+      "active": 1
+    },
+    "OrbitCameraComponent": {
+      "rotSpeed": 3.0,
+      "panSpeed": 1.5,
+      "zoomSpeed": 0.15,
+      "minDistance": 1.0,
+      "maxDistance": 50.0,
+      "viewport": 0
+    }
+  },
+  "Environment": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "EnvironmentComponent": {
+      "ambientLight": [
+        0.15,
+        0.15,
+        0.2,
+        1
+      ],
+      "clearColor": [
+        0.03,
+        0.03,
+        0.05,
+        1
+      ]
+    }
+  },
+  "Physics": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "PhysicsControllerComponent": {
+      "enabled": 1,
+      "gravity": [
+        0,
+        -9.81,
+        0
+      ],
+      "timeStep": 0.0166,
+      "maxSubsteps": 4,
+      "groundEnabled": 0,
+      "groundHeight": -3,
+      "groundHalfExtent": 50,
+      "groundThickness": 0.1,
+      "debugDraw": 1
+    }
+  },
+  "Box": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "RigidBodyComponent": {
+      "bodyType": "kinematicPosition",
+      "linearDamping": 0,
+      "angularDamping": 0,
+      "gravityScale": 0,
+      "ccd": 0,
+      "lockRotation": 0
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "cuboid",
+      "halfExtents": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "isSensor": 1,
+      "friction": 0.4,
+      "restitution": 0.3
+    },
+    "ScriptComponent": {
+      "script": "scripts/director.js",
+      "enabled": 1
+    }
+  },
+  "WallFloor": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "cuboid",
+      "halfExtents": [
+        2,
+        0.2,
+        2
+      ],
+      "attachTo": "Box",
+      "offset": [
+        0,
+        -2,
+        0
+      ],
+      "colliderRot": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "friction": 0.4,
+      "restitution": 0.3
+    }
+  },
+  "WallCeil": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "cuboid",
+      "halfExtents": [
+        2,
+        0.2,
+        2
+      ],
+      "attachTo": "Box",
+      "offset": [
+        0,
+        2,
+        0
+      ],
+      "colliderRot": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "friction": 0.4,
+      "restitution": 0.3
+    }
+  },
+  "WallNX": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "cuboid",
+      "halfExtents": [
+        0.2,
+        2,
+        2
+      ],
+      "attachTo": "Box",
+      "offset": [
+        -2,
+        0,
+        0
+      ],
+      "colliderRot": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "friction": 0.4,
+      "restitution": 0.3
+    }
+  },
+  "WallPX": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "cuboid",
+      "halfExtents": [
+        0.2,
+        2,
+        2
+      ],
+      "attachTo": "Box",
+      "offset": [
+        2,
+        0,
+        0
+      ],
+      "colliderRot": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "friction": 0.4,
+      "restitution": 0.3
+    }
+  },
+  "WallNZ": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "cuboid",
+      "halfExtents": [
+        2,
+        2,
+        0.2
+      ],
+      "attachTo": "Box",
+      "offset": [
+        0,
+        0,
+        -2
+      ],
+      "colliderRot": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "friction": 0.4,
+      "restitution": 0.3
+    }
+  },
+  "WallPZ": {
+    "Transform": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "cuboid",
+      "halfExtents": [
+        2,
+        2,
+        0.2
+      ],
+      "attachTo": "Box",
+      "offset": [
+        0,
+        0,
+        2
+      ],
+      "colliderRot": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "friction": 0.4,
+      "restitution": 0.3
+    }
+  },
+  "GlowBall0": {
+    "Transform": {
+      "position": [
+        -0.8861198425292968,
+        0.07799863815307617,
+        -1.4467731475830077
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0,
+        0.787,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        1.574,
+        2
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall1": {
+    "Transform": {
+      "position": [
+        1.4961776733398435,
+        0.96429967880249,
+        1.4326007843017576
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0,
+        1,
+        0.264,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        2,
+        0.528
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall2": {
+    "Transform": {
+      "position": [
+        0.32521591186523435,
+        0.6012904167175293,
+        -0.9513431549072264
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0,
+        1,
+        0.479,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        2,
+        0.958
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall3": {
+    "Transform": {
+      "position": [
+        -0.8089660644531249,
+        1.0742247581481932,
+        -1.282003402709961
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        1,
+        0,
+        0.988,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        2,
+        0,
+        1.976
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall4": {
+    "Transform": {
+      "position": [
+        -0.000704193115234375,
+        0.7199191093444823,
+        1.4978466033935545
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        1,
+        0,
+        0.554,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        2,
+        0,
+        1.108
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall5": {
+    "Transform": {
+      "position": [
+        -0.37870941162109373,
+        1.1517523765563964,
+        -0.7639415740966796
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        1,
+        0,
+        0.116,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        2,
+        0,
+        0.232
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall6": {
+    "Transform": {
+      "position": [
+        0.8320987701416015,
+        0.9961266517639158,
+        -0.18306198120117187
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0.017,
+        0,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0.034,
+        0,
+        2
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall7": {
+    "Transform": {
+      "position": [
+        0.5887554168701171,
+        0.24857454299926757,
+        1.4692550659179686
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0,
+        0.296,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0.592,
+        2
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall8": {
+    "Transform": {
+      "position": [
+        -0.3985698699951172,
+        0.03701486587524411,
+        -0.07387466430664062
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        1,
+        0,
+        0.073,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        2,
+        0,
+        0.146
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "GlowBall9": {
+    "Transform": {
+      "position": [
+        1.0210994720458983,
+        -0.007204723358154308,
+        0.30258789062499997
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0.321,
+        1,
+        0,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0.642,
+        2,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    },
+    "LightComponent": {
+      "type": "point",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "intensity": 8,
+      "range": 6,
+      "castShadow": 1,
+      "shadowNear": 0.2,
+      "shadowFar": 6,
+      "shadowStrategy": "cube-map"
+    }
+  },
+  "Ball0": {
+    "Transform": {
+      "position": [
+        1.089365005493164,
+        0.43632593154907223,
+        -1.5706932067871093
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0.644,
+        0,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball1": {
+    "Transform": {
+      "position": [
+        1.3884532928466795,
+        0.4020794868469238,
+        -0.09742889404296874
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        1,
+        0,
+        0.456,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball2": {
+    "Transform": {
+      "position": [
+        0.226683235168457,
+        0.3494510650634765,
+        0.4550329208374023
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0.236,
+        0,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball3": {
+    "Transform": {
+      "position": [
+        -1.4620733261108396,
+        1.1918693542480467,
+        -1.3393571853637694
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0,
+        1,
+        0.752,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball4": {
+    "Transform": {
+      "position": [
+        -1.0463016510009764,
+        0.3656254768371581,
+        -0.5194519042968749
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0.324,
+        0,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball5": {
+    "Transform": {
+      "position": [
+        -1.3886936187744139,
+        0.3705464363098144,
+        0.8006805419921874
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0.939,
+        1,
+        0,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball6": {
+    "Transform": {
+      "position": [
+        0.5932226181030273,
+        -0.2673593521118164,
+        -0.2642644882202148
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        1,
+        0.262,
+        0,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball7": {
+    "Transform": {
+      "position": [
+        1.2589426040649414,
+        0.7124572753906249,
+        -0.9204774856567383
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0,
+        0.25,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball8": {
+    "Transform": {
+      "position": [
+        -1.3232612609863281,
+        1.268220043182373,
+        1.1216396331787108
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0,
+        0.63,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  },
+  "Ball9": {
+    "Transform": {
+      "position": [
+        -0.33133449554443356,
+        0.7178436279296874,
+        0.9164426803588867
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "MeshComponent": {
+      "mesh": "pbr_icosphere"
+    },
+    "PbrMaterial": {
+      "baseColor": [
+        0,
+        1,
+        0.886,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "shadowCast": 1,
+      "shadowReceive": 1
+    },
+    "ColliderComponent": {
+      "enabled": 1,
+      "shape": "ball",
+      "radius": 0.3,
+      "friction": 0.3,
+      "restitution": 0.5
+    },
+    "RigidBodyComponent": {
+      "bodyType": "dynamic",
+      "linearDamping": 0.1,
+      "angularDamping": 0.1,
+      "gravityScale": 1,
+      "ccd": 1,
+      "lockRotation": 0
+    }
+  }
+}

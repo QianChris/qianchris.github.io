@@ -1,0 +1,6 @@
+{
+  "name": "PbdPredictPipeline",
+  "compute": { "shader": "../shaders/PbdPredict.wgsl", "entryPoint": "main" },
+  "workgroupSize": 64,
+  "bindLayout": ["pbdPredict"]
+}

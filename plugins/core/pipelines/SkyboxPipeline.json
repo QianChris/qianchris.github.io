@@ -1,0 +1,19 @@
+{
+  "name": "SkyboxPipeline",
+  "vertex": { "shader": "../shaders/Skybox.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/Skybox.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": false, "depthCompare": "less-equal" },
+  "bindLayout": ["frame", "materialSkybox"],
+  "renderer": {
+    "phase": "Skybox",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "steps": [{ "draw": { "type": "draw", "vertexCount": 3 } }] },
+    "bindGroups": [
+      { "group": 1,
+        "samplers": [ { "binding": 0, "name": "default" } ],
+        "textures": [ { "binding": 1, "source": "asset:textures/skybox.png" } ]
+      }
+    ]
+  }
+}

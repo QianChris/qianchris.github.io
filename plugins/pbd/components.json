@@ -1,0 +1,14 @@
+[
+  {
+    "name": "PbdSoftBodyComponent",
+    "fields": {
+      "asset":            { "type": "string", "default": "softbody_asset.json" },
+      "gravity":          { "type": "f32", "default": -9.81 },
+      "damping":          { "type": "f32", "default": 0.995 },
+      "solverIterations":  { "type": "u32", "default": 12 },
+      "compliance":        { "type": "f32", "default": 0.0 },
+      "restitution":       { "type": "f32", "default": 0.3 },
+      "mass":              { "type": "f32", "default": 1.0 }
+    }
+  }
+]

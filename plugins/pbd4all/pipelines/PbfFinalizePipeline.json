@@ -1,0 +1,6 @@
+{
+  "name": "PbfFinalizePipeline",
+  "compute": { "shader": "../shaders/PbfFinalize.wgsl", "entryPoint": "main" },
+  "workgroupSize": 256,
+  "bindLayout": ["pbd4allFinalize"]
+}

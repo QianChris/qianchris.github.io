@@ -1,0 +1,123 @@
+/**
+ * Splendor card + noble data, generated from the reference implementation
+ * (Ref/Splendor-AI, Environment/Splendor_components/Board_components/
+ * splendor_cards_data.py; cross-checked against Splendor_cards_numeric.xlsx).
+ *
+ * color index: 0 white, 1 blue, 2 green, 3 red, 4 black (gold = 5, tokens only).
+ * Do not hand-edit — regenerate with scripts/generate-splendor-cards.py.
+ */
+import type { CardDef, NobleDef } from './rules.ts';
+
+/** Tier 0 = 40 cards (ids 1-40), tier 1 = 30 (41-70), tier 2 = 20 (71-90). */
+export const CARDS: readonly CardDef[] = [
+    // ── tier 1 ──
+    { id: 1, tier: 0, bonus: 0, points: 0, cost: [0, 2, 0, 0, 2] },
+    { id: 2, tier: 0, bonus: 3, points: 0, cost: [2, 0, 0, 2, 0] },
+    { id: 3, tier: 0, bonus: 2, points: 0, cost: [2, 1, 0, 0, 0] },
+    { id: 4, tier: 0, bonus: 0, points: 0, cost: [0, 1, 1, 1, 1] },
+    { id: 5, tier: 0, bonus: 3, points: 0, cost: [2, 1, 1, 0, 1] },
+    { id: 6, tier: 0, bonus: 1, points: 0, cost: [0, 0, 2, 0, 2] },
+    { id: 7, tier: 0, bonus: 4, points: 0, cost: [0, 0, 3, 0, 0] },
+    { id: 8, tier: 0, bonus: 2, points: 0, cost: [1, 1, 0, 1, 1] },
+    { id: 9, tier: 0, bonus: 1, points: 0, cost: [1, 0, 2, 2, 0] },
+    { id: 10, tier: 0, bonus: 0, points: 0, cost: [0, 1, 2, 1, 1] },
+    { id: 11, tier: 0, bonus: 2, points: 1, cost: [0, 0, 0, 0, 4] },
+    { id: 12, tier: 0, bonus: 4, points: 0, cost: [0, 0, 2, 1, 0] },
+    { id: 13, tier: 0, bonus: 0, points: 0, cost: [0, 3, 0, 0, 0] },
+    { id: 14, tier: 0, bonus: 0, points: 1, cost: [0, 0, 4, 0, 0] },
+    { id: 15, tier: 0, bonus: 3, points: 1, cost: [4, 0, 0, 0, 0] },
+    { id: 16, tier: 0, bonus: 2, points: 0, cost: [0, 2, 0, 2, 0] },
+    { id: 17, tier: 0, bonus: 4, points: 1, cost: [0, 4, 0, 0, 0] },
+    { id: 18, tier: 0, bonus: 3, points: 0, cost: [3, 0, 0, 0, 0] },
+    { id: 19, tier: 0, bonus: 0, points: 0, cost: [0, 2, 2, 0, 1] },
+    { id: 20, tier: 0, bonus: 2, points: 0, cost: [1, 3, 1, 0, 0] },
+    { id: 21, tier: 0, bonus: 3, points: 0, cost: [1, 1, 1, 0, 1] },
+    { id: 22, tier: 0, bonus: 2, points: 0, cost: [0, 1, 0, 2, 2] },
+    { id: 23, tier: 0, bonus: 1, points: 0, cost: [1, 0, 1, 1, 1] },
+    { id: 24, tier: 0, bonus: 3, points: 0, cost: [2, 0, 1, 0, 2] },
+    { id: 25, tier: 0, bonus: 2, points: 0, cost: [0, 0, 0, 3, 0] },
+    { id: 26, tier: 0, bonus: 1, points: 0, cost: [1, 0, 1, 2, 1] },
+    { id: 27, tier: 0, bonus: 1, points: 0, cost: [0, 1, 3, 1, 0] },
+    { id: 28, tier: 0, bonus: 4, points: 0, cost: [2, 0, 2, 0, 0] },
+    { id: 29, tier: 0, bonus: 4, points: 0, cost: [0, 0, 1, 3, 1] },
+    { id: 30, tier: 0, bonus: 4, points: 0, cost: [2, 2, 0, 1, 0] },
+    { id: 31, tier: 0, bonus: 1, points: 1, cost: [0, 0, 0, 4, 0] },
+    { id: 32, tier: 0, bonus: 1, points: 0, cost: [1, 0, 0, 0, 2] },
+    { id: 33, tier: 0, bonus: 3, points: 0, cost: [0, 2, 1, 0, 0] },
+    { id: 34, tier: 0, bonus: 1, points: 0, cost: [0, 0, 0, 0, 3] },
+    { id: 35, tier: 0, bonus: 0, points: 0, cost: [0, 0, 0, 2, 1] },
+    { id: 36, tier: 0, bonus: 4, points: 0, cost: [1, 1, 1, 1, 0] },
+    { id: 37, tier: 0, bonus: 2, points: 0, cost: [1, 1, 0, 1, 2] },
+    { id: 38, tier: 0, bonus: 0, points: 0, cost: [3, 1, 0, 0, 1] },
+    { id: 39, tier: 0, bonus: 4, points: 0, cost: [1, 2, 1, 1, 0] },
+    { id: 40, tier: 0, bonus: 3, points: 0, cost: [1, 0, 0, 1, 3] },
+    // ── tier 2 ──
+    { id: 41, tier: 1, bonus: 2, points: 2, cost: [0, 0, 5, 0, 0] },
+    { id: 42, tier: 1, bonus: 1, points: 1, cost: [0, 2, 3, 0, 3] },
+    { id: 43, tier: 1, bonus: 4, points: 1, cost: [3, 0, 3, 0, 2] },
+    { id: 44, tier: 1, bonus: 2, points: 2, cost: [4, 2, 0, 0, 1] },
+    { id: 45, tier: 1, bonus: 0, points: 1, cost: [2, 3, 0, 3, 0] },
+    { id: 46, tier: 1, bonus: 3, points: 1, cost: [0, 3, 0, 2, 3] },
+    { id: 47, tier: 1, bonus: 1, points: 2, cost: [0, 5, 0, 0, 0] },
+    { id: 48, tier: 1, bonus: 0, points: 1, cost: [0, 0, 3, 2, 2] },
+    { id: 49, tier: 1, bonus: 3, points: 1, cost: [2, 0, 0, 2, 3] },
+    { id: 50, tier: 1, bonus: 1, points: 2, cost: [5, 3, 0, 0, 0] },
+    { id: 51, tier: 1, bonus: 2, points: 3, cost: [0, 0, 6, 0, 0] },
+    { id: 52, tier: 1, bonus: 3, points: 2, cost: [0, 0, 0, 0, 5] },
+    { id: 53, tier: 1, bonus: 1, points: 2, cost: [2, 0, 0, 1, 4] },
+    { id: 54, tier: 1, bonus: 4, points: 1, cost: [3, 2, 2, 0, 0] },
+    { id: 55, tier: 1, bonus: 2, points: 2, cost: [0, 5, 3, 0, 0] },
+    { id: 56, tier: 1, bonus: 3, points: 3, cost: [0, 0, 0, 6, 0] },
+    { id: 57, tier: 1, bonus: 0, points: 3, cost: [6, 0, 0, 0, 0] },
+    { id: 58, tier: 1, bonus: 2, points: 1, cost: [2, 3, 0, 0, 2] },
+    { id: 59, tier: 1, bonus: 4, points: 2, cost: [0, 1, 4, 2, 0] },
+    { id: 60, tier: 1, bonus: 1, points: 3, cost: [0, 6, 0, 0, 0] },
+    { id: 61, tier: 1, bonus: 4, points: 3, cost: [0, 0, 0, 0, 6] },
+    { id: 62, tier: 1, bonus: 4, points: 2, cost: [5, 0, 0, 0, 0] },
+    { id: 63, tier: 1, bonus: 1, points: 1, cost: [0, 2, 2, 3, 0] },
+    { id: 64, tier: 1, bonus: 3, points: 2, cost: [1, 4, 2, 0, 0] },
+    { id: 65, tier: 1, bonus: 4, points: 2, cost: [0, 0, 5, 3, 0] },
+    { id: 66, tier: 1, bonus: 0, points: 2, cost: [0, 0, 0, 5, 3] },
+    { id: 67, tier: 1, bonus: 3, points: 2, cost: [3, 0, 0, 0, 5] },
+    { id: 68, tier: 1, bonus: 2, points: 1, cost: [3, 0, 2, 3, 0] },
+    { id: 69, tier: 1, bonus: 0, points: 2, cost: [0, 0, 0, 5, 0] },
+    { id: 70, tier: 1, bonus: 0, points: 2, cost: [0, 0, 1, 4, 2] },
+    // ── tier 3 ──
+    { id: 71, tier: 2, bonus: 3, points: 3, cost: [3, 5, 3, 0, 3] },
+    { id: 72, tier: 2, bonus: 2, points: 3, cost: [5, 3, 0, 3, 3] },
+    { id: 73, tier: 2, bonus: 2, points: 4, cost: [3, 6, 3, 0, 0] },
+    { id: 74, tier: 2, bonus: 1, points: 4, cost: [6, 3, 0, 0, 3] },
+    { id: 75, tier: 2, bonus: 4, points: 4, cost: [0, 0, 0, 7, 0] },
+    { id: 76, tier: 2, bonus: 0, points: 4, cost: [3, 0, 0, 3, 6] },
+    { id: 77, tier: 2, bonus: 4, points: 5, cost: [0, 0, 0, 7, 3] },
+    { id: 78, tier: 2, bonus: 1, points: 3, cost: [3, 0, 3, 3, 5] },
+    { id: 79, tier: 2, bonus: 3, points: 4, cost: [0, 0, 7, 0, 0] },
+    { id: 80, tier: 2, bonus: 3, points: 4, cost: [0, 3, 6, 3, 0] },
+    { id: 81, tier: 2, bonus: 1, points: 5, cost: [7, 3, 0, 0, 0] },
+    { id: 82, tier: 2, bonus: 2, points: 4, cost: [0, 7, 0, 0, 0] },
+    { id: 83, tier: 2, bonus: 1, points: 4, cost: [7, 0, 0, 0, 0] },
+    { id: 84, tier: 2, bonus: 3, points: 5, cost: [0, 0, 7, 3, 0] },
+    { id: 85, tier: 2, bonus: 0, points: 5, cost: [3, 0, 0, 0, 7] },
+    { id: 86, tier: 2, bonus: 2, points: 5, cost: [0, 7, 3, 0, 0] },
+    { id: 87, tier: 2, bonus: 4, points: 4, cost: [0, 0, 3, 6, 3] },
+    { id: 88, tier: 2, bonus: 4, points: 3, cost: [3, 3, 5, 3, 0] },
+    { id: 89, tier: 2, bonus: 0, points: 4, cost: [0, 0, 0, 0, 7] },
+    { id: 90, tier: 2, bonus: 0, points: 3, cost: [0, 3, 3, 5, 3] },
+];
+
+/** 10 nobles (ids 91-100), 3 points each; cost = per-color bonus requirement. */
+export const NOBLES: readonly NobleDef[] = [
+    { id: 91, points: 3, req: [3, 3, 3, 0, 0] },
+    { id: 92, points: 3, req: [0, 0, 0, 4, 4] },
+    { id: 93, points: 3, req: [3, 3, 0, 0, 3] },
+    { id: 94, points: 3, req: [4, 0, 0, 0, 4] },
+    { id: 95, points: 3, req: [0, 3, 3, 3, 0] },
+    { id: 96, points: 3, req: [0, 0, 4, 4, 0] },
+    { id: 97, points: 3, req: [0, 0, 3, 3, 3] },
+    { id: 98, points: 3, req: [0, 4, 4, 0, 0] },
+    { id: 99, points: 3, req: [3, 0, 0, 3, 3] },
+    { id: 100, points: 3, req: [4, 4, 0, 0, 0] },
+];
+
+export const CARD_BY_ID: ReadonlyMap<number, CardDef> = new Map(CARDS.map(c => [c.id, c]));
+export const NOBLE_BY_ID: ReadonlyMap<number, NobleDef> = new Map(NOBLES.map(n => [n.id, n]));

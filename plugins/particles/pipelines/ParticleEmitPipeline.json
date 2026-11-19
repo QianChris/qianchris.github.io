@@ -1,0 +1,6 @@
+{
+  "name": "ParticleEmitPipeline",
+  "compute": { "shader": "../shaders/ParticleEmit.wgsl", "entryPoint": "main" },
+  "workgroupSize": 64,
+  "bindLayout": ["particleEmit"]
+}

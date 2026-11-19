@@ -1,0 +1,94 @@
+{
+  "MainCamera": {
+    "Transform": { "position": [0, 4, 12], "rotation": [-0.13, 0, 0, 0.991], "scale": [1, 1, 1] },
+    "Camera": { "fov": 50, "near": 0.1, "far": 200, "active": 1 }
+  },
+  "Environment": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "EnvironmentComponent": { "ambientLight": [0.25, 0.27, 0.32, 1.6], "clearColor": [0.04, 0.05, 0.09, 1.0] }
+  },
+  "SunLight": {
+    "Transform": { "position": [4, 8, 4], "rotation": [0.36, -0.2, 0.08, 0.906], "scale": [1, 1, 1] },
+    "LightComponent": { "type": "directional", "color": [1, 0.96, 0.9], "intensity": 3.2, "castShadow": true, "shadowOrtho": 14, "shadowNear": 0.1, "shadowFar": 60 }
+  },
+  "FillLight": {
+    "Transform": { "position": [-3, 5, 3], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "LightComponent": { "type": "point", "color": [0.6, 0.8, 1.0], "intensity": 30.0, "range": 20 }
+  },
+  "PhysicsWorld": {
+    "PhysicsControllerComponent": { "enabled": 1, "gravity": [0, -9.81, 0], "timeStep": 0.0166667, "maxSubsteps": 4, "debugDraw": 0, "groundEnabled": 0, "groundHeight": 0 }
+  },
+  "Ground": {
+    "Transform": { "position": [0, -0.25, 0], "rotation": [0, 0, 0, 1], "scale": [24, 0.5, 24] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.35, 0.38, 0.42, 1] },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [12, 0.25, 12], "friction": 0.8, "restitution": 0.1 }
+  },
+  "Cube0": {
+    "Transform": { "position": [-1.1, 0.5, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.9, 0.4, 0.3, 1] },
+    "TestEdgeRender": { "color": [1, 1, 1, 1], "lineWidth": 1.5 },
+    "RigidBodyComponent": { "bodyType": "dynamic" },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [0.5, 0.5, 0.5], "restitution": 0.2, "friction": 0.7 }
+  },
+  "Cube1": {
+    "Transform": { "position": [0, 0.5, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.4, 0.8, 0.5, 1] },
+    "TestEdgeRender": { "color": [1, 1, 1, 1], "lineWidth": 1.5 },
+    "RigidBodyComponent": { "bodyType": "dynamic" },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [0.5, 0.5, 0.5], "restitution": 0.2, "friction": 0.7 }
+  },
+  "Cube2": {
+    "Transform": { "position": [1.1, 0.5, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.4, 0.6, 0.95, 1] },
+    "TestEdgeRender": { "color": [1, 1, 1, 1], "lineWidth": 1.5 },
+    "RigidBodyComponent": { "bodyType": "dynamic" },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [0.5, 0.5, 0.5], "restitution": 0.2, "friction": 0.7 }
+  },
+  "Cube3": {
+    "Transform": { "position": [-0.55, 1.5, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.95, 0.8, 0.3, 1] },
+    "TestEdgeRender": { "color": [1, 1, 1, 1], "lineWidth": 1.5 },
+    "RigidBodyComponent": { "bodyType": "dynamic" },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [0.5, 0.5, 0.5], "restitution": 0.2, "friction": 0.7 }
+  },
+  "Cube4": {
+    "Transform": { "position": [0.55, 1.5, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.8, 0.4, 0.9, 1] },
+    "TestEdgeRender": { "color": [1, 1, 1, 1], "lineWidth": 1.5 },
+    "RigidBodyComponent": { "bodyType": "dynamic" },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [0.5, 0.5, 0.5], "restitution": 0.2, "friction": 0.7 }
+  },
+  "Cube5": {
+    "Transform": { "position": [0, 2.5, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "MeshComponent": { "mesh": "cube" },
+    "TestMeshRender": { "color": [0.95, 0.55, 0.2, 1] },
+    "TestEdgeRender": { "color": [1, 1, 1, 1], "lineWidth": 1.5 },
+    "RigidBodyComponent": { "bodyType": "dynamic" },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [0.5, 0.5, 0.5], "restitution": 0.2, "friction": 0.7 }
+  },
+  "Sparks": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "ParticleSystemComponent": { "maxParticles": 40000, "gravity": [0, -6.0, 0], "drag": 0.6 }
+  },
+  "SparkEmitter": {
+    "Transform": { "position": [0, -50, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "EmitterComponent": {
+      "system": "Sparks", "enabled": 0, "shape": "sphere", "radius": 0.15,
+      "rate": 24000, "direction": [0, 1, 0], "spread": 1.0,
+      "speedMin": 2.0, "speedMax": 6.0, "lifeMin": 0.3, "lifeMax": 0.8,
+      "startSize": 0.08, "endSize": 0.0, "gravityScale": 1.0,
+      "startColor": [1.0, 0.85, 0.4, 1.0], "endColor": [1.0, 0.25, 0.05, 0.0]
+    }
+  },
+  "GameState": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "GameStateComponent": { "ballSpeed": 20.0, "ballRadius": 0.35, "spawnHeight": 7.0 },
+    "ScriptComponent": { "script": "scripts/game.js", "enabled": 1 }
+  }
+}

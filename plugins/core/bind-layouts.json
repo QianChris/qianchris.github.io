@@ -1,0 +1,101 @@
+{
+  "frame": {
+    "entries": [
+      { "binding": 0, "visibility": ["vertex", "fragment"], "buffer": "uniform", "resource": "camera" },
+      { "binding": 1, "visibility": ["vertex", "fragment"], "buffer": "uniform", "resource": "light" },
+      { "binding": 2, "visibility": ["vertex", "fragment"], "buffer": "uniform", "resource": "timeInput" },
+      { "binding": 3, "visibility": ["fragment"], "texture": "depth", "viewDimension": "2d-array", "resource": "shadowDepth2DArray" },
+      { "binding": 4, "visibility": ["fragment"], "sampler": "comparison", "resource": "sampler:shadow" },
+      { "binding": 5, "visibility": ["fragment"], "texture": "depth", "viewDimension": "2d-array", "resource": "shadowPoint2DArray" },
+      { "binding": 6, "visibility": ["fragment"], "buffer": "uniform", "resource": "pointShadowFaces" }
+    ]
+  },
+  "frameShadow": {
+    "entries": [
+      { "binding": 0, "visibility": ["vertex", "fragment"], "buffer": "uniform", "resource": "camera" },
+      { "binding": 1, "visibility": ["vertex", "fragment"], "buffer": "uniform", "resource": "light" },
+      { "binding": 2, "visibility": ["vertex", "fragment"], "buffer": "uniform", "resource": "timeInput" },
+      { "binding": 3, "visibility": ["vertex", "fragment"], "buffer": "uniform", "resource": "pointShadowFaces" }
+    ]
+  },
+  "shadowPass": {
+    "entries": [
+      { "binding": 0, "visibility": ["vertex"], "buffer": "uniform" }
+    ]
+  },
+  "object": {
+    "entries": [
+      { "binding": 0, "visibility": ["vertex", "fragment"], "buffer": "uniform" }
+    ]
+  },
+  "deferredGBuffer": {
+    "entries": [
+      { "binding": 0, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 1, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 2, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 3, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 4, "visibility": ["fragment"], "sampler": "filtering" }
+    ]
+  },
+  "materialPbr": {
+    "entries": [
+      { "binding": 0, "visibility": ["fragment"], "buffer": "uniform" },
+      { "binding": 1, "visibility": ["fragment"], "sampler": "filtering" },
+      { "binding": 2, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 3, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 4, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 5, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 6, "visibility": ["fragment"], "texture": "float" }
+    ]
+  },
+  "materialSkybox": {
+    "entries": [
+      { "binding": 0, "visibility": ["fragment"], "sampler": "filtering" },
+      { "binding": 1, "visibility": ["fragment"], "texture": "float" }
+    ]
+  },
+  "fullscreen": {
+    "entries": [
+      { "binding": 0, "visibility": ["fragment"], "sampler": "filtering" },
+      { "binding": 1, "visibility": ["fragment"], "texture": "float" }
+    ]
+  },
+  "fullscreenParam": {
+    "entries": [
+      { "binding": 0, "visibility": ["fragment"], "sampler": "filtering" },
+      { "binding": 1, "visibility": ["fragment"], "texture": "float" },
+      { "binding": 2, "visibility": ["fragment"], "buffer": "uniform" }
+    ]
+  },
+  "particleEmit": {
+    "entries": [
+      { "binding": 0, "visibility": ["compute"], "buffer": "storage" },
+      { "binding": 1, "visibility": ["compute"], "buffer": "storage" },
+      { "binding": 2, "visibility": ["compute"], "buffer": "uniform" }
+    ]
+  },
+  "particleSim": {
+    "entries": [
+      { "binding": 0, "visibility": ["compute"], "buffer": "storage" },
+      { "binding": 1, "visibility": ["compute"], "buffer": "storage" },
+      { "binding": 2, "visibility": ["compute"], "buffer": "storage" },
+      { "binding": 3, "visibility": ["compute"], "buffer": "storage" },
+      { "binding": 4, "visibility": ["compute"], "buffer": "uniform" }
+    ]
+  },
+  "particleDraw": {
+    "entries": [
+      { "binding": 0, "visibility": ["vertex"], "buffer": "read-only-storage" },
+      { "binding": 1, "visibility": ["vertex"], "buffer": "read-only-storage" }
+    ]
+  },
+  "splat": {
+    "entries": [
+      { "binding": 0, "visibility": ["vertex"], "buffer": "read-only-storage" },
+      { "binding": 1, "visibility": ["vertex"], "buffer": "read-only-storage" },
+      { "binding": 2, "visibility": ["vertex"], "buffer": "read-only-storage" },
+      { "binding": 3, "visibility": ["vertex"], "buffer": "read-only-storage" },
+      { "binding": 4, "visibility": ["vertex"], "buffer": "uniform" }
+    ]
+  }
+}

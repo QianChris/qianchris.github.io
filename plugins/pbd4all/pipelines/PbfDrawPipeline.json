@@ -1,0 +1,29 @@
+{
+  "name": "PbfDrawPipeline",
+  "vertex": { "shader": "../shaders/PbfDraw.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/PbfDraw.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less" },
+  "bindLayout": ["frame", "pbd4allDraw"],
+  "renderer": {
+    "query": ["PbfFluidComponent"],
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "hook": "pbd4all.draw" },
+    "compute": { "script": "pbd4all.simulate" },
+    "aux": {
+      "predict":     "pbd4all:pipelines/PbfPredictPipeline.json",
+      "count":       "pbd4all:pipelines/PbfCountPipeline.json",
+      "scanBlock":   "pbd4all:pipelines/PbfScanBlockPipeline.json",
+      "scanBlocks":  "pbd4all:pipelines/PbfScanBlocksPipeline.json",
+      "scanAdd":     "pbd4all:pipelines/PbfScanAddPipeline.json",
+      "scatterSlot": "pbd4all:pipelines/PbfScatterSlotPipeline.json",
+      "scatterMove": "pbd4all:pipelines/PbfScatterMovePipeline.json",
+      "lambda":      "pbd4all:pipelines/PbfLambdaPipeline.json",
+      "delta":       "pbd4all:pipelines/PbfDeltaPipeline.json",
+      "velFromPos":  "pbd4all:pipelines/PbfVelFromPosPipeline.json",
+      "xsph":        "pbd4all:pipelines/PbfXsphPipeline.json",
+      "finalize":    "pbd4all:pipelines/PbfFinalizePipeline.json"
+    }
+  }
+}

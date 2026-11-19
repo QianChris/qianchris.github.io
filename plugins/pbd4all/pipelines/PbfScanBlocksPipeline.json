@@ -1,0 +1,6 @@
+{
+  "name": "PbfScanBlocksPipeline",
+  "compute": { "shader": "../shaders/PbfScanBlocks.wgsl", "entryPoint": "main" },
+  "workgroupSize": 1,
+  "bindLayout": ["pbd4allScanBlocks"]
+}

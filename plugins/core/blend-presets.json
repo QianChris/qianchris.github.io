@@ -1,0 +1,18 @@
+{
+    "opaque": {
+        "color": { "srcFactor": "one", "dstFactor": "zero", "operation": "add" },
+        "alpha": { "srcFactor": "one", "dstFactor": "zero", "operation": "add" }
+    },
+    "alpha": {
+        "color": { "srcFactor": "src-alpha", "dstFactor": "one-minus-src-alpha", "operation": "add" },
+        "alpha": { "srcFactor": "one", "dstFactor": "one-minus-src-alpha", "operation": "add" }
+    },
+    "additive": {
+        "color": { "srcFactor": "src-alpha", "dstFactor": "one", "operation": "add" },
+        "alpha": { "srcFactor": "one", "dstFactor": "one", "operation": "add" }
+    },
+    "premultiplied": {
+        "color": { "srcFactor": "one", "dstFactor": "one-minus-src-alpha", "operation": "add" },
+        "alpha": { "srcFactor": "one", "dstFactor": "one-minus-src-alpha", "operation": "add" }
+    }
+}

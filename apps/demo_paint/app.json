@@ -1,0 +1,7 @@
+{
+  "name": "demo_paint",
+  "plugins": ["textureedit"],
+  "scene": "scene.json",
+  "render": "render.json",
+  "ui": "ui-config.json"
+}

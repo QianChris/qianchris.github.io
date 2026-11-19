@@ -1,0 +1,9 @@
+{
+  "name": "AnimRender",
+  "clearColor": [0.08, 0.08, 0.12, 1.0],
+  "phases": {
+    "Opaque": [
+      { "name": "Skinned", "pipeline": "animation:pipelines/SkinnedPbrPipeline.json", "enabled": true }
+    ]
+  }
+}

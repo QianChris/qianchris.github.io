@@ -1,0 +1,14 @@
+{
+  "name": "ShadowDebugPipeline",
+  "vertex": { "shader": "../shaders/ShadowDebug.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/ShadowDebug.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none", "frontFace": "ccw" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": false, "depthCompare": "always" },
+  "blend": "opaque",
+  "bindLayout": ["frame"],
+  "renderer": {
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "steps": [{ "draw": { "type": "draw", "vertexCount": 3 } }] }
+  }
+}

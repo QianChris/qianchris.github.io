@@ -1,0 +1,7 @@
+[
+    {
+        "id": "demo-hud",
+        "source": "ui/demoHUD.js",
+        "container": "#hud-container"
+    }
+]

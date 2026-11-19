@@ -1,0 +1,13 @@
+{
+  "name": "PbdFloorPipeline",
+  "vertex": { "shader": "../shaders/PbdFloor.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/PbdFloor.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": false, "depthCompare": "less-equal" },
+  "bindLayout": ["frame"],
+  "renderer": {
+    "phase": "Opaque",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "hook": "pbd.floor" }
+  }
+}

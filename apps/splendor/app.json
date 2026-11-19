@@ -1,0 +1,7 @@
+{
+  "name": "splendor",
+  "plugins": ["splendor"],
+  "scene": "scene.json",
+  "render": "render.json",
+  "ui": "ui-config.json"
+}

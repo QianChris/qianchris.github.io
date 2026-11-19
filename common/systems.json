@@ -1,0 +1,10 @@
+[
+    { "name": "input" },
+    { "name": "script" },
+    { "name": "physics" },
+    { "name": "transform" },
+    { "name": "camera" },
+    { "name": "light" },
+    { "name": "animation" },
+    { "name": "render" }
+]

@@ -1,0 +1,6 @@
+{
+  "name": "PbdIntegratePipeline",
+  "compute": { "shader": "../shaders/PbdIntegrate.wgsl", "entryPoint": "main" },
+  "workgroupSize": 256,
+  "bindLayout": ["pbdIntegrate"]
+}

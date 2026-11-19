@@ -1,0 +1,99 @@
+{
+  "MainCamera": {
+    "Transform": { "position": [0, 1.2, 10.8], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "Camera": { "fov": 42, "near": 0.1, "far": 100, "active": 1 },
+    "OrbitCameraComponent": {
+      "target": [0, 0.35, 0],
+      "distance": 10.8,
+      "azimuth": 0,
+      "elevation": 0.08,
+      "rotSpeed": 2.0,
+      "zoomSpeed": 0.12,
+      "minDistance": 4.5,
+      "maxDistance": 14,
+      "initialized": 1
+    }
+  },
+  "Environment": {
+    "EnvironmentComponent": {
+      "ambientLight": [0, 0, 0, 0],
+      "clearColor": [0.02, 0.025, 0.035, 1]
+    },
+    "EnvironmentLightComponent": {
+      "source": "../../common/textures/skybox.png",
+      "lightingEnabled": 1,
+      "skyVisible": 1,
+      "intensity": 1.25,
+      "diffuseIntensity": 0.9,
+      "specularIntensity": 1.35,
+      "backgroundIntensity": 0.8,
+      "rotation": 0,
+      "skyResolution": 2048,
+      "specularResolution": 64
+    }
+  },
+  "KeyLight": {
+    "Transform": { "position": [0, 5, 0], "rotation": [0.28, -0.32, 0.1, 0.9], "scale": [1, 1, 1] },
+    "LightComponent": {
+      "type": "directional",
+      "color": [1, 0.96, 0.9],
+      "intensity": 0.8,
+      "castShadow": 0
+    }
+  },
+  "Metal005": {
+    "Transform": { "position": [-3.0, 1.2, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.95, 0.64, 0.22, 1], "metallic": 1, "roughness": 0.05, "ao": 1 }
+  },
+  "Metal020": {
+    "Transform": { "position": [-1.5, 1.2, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.95, 0.64, 0.22, 1], "metallic": 1, "roughness": 0.2, "ao": 1 }
+  },
+  "Metal040": {
+    "Transform": { "position": [0, 1.2, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.95, 0.64, 0.22, 1], "metallic": 1, "roughness": 0.4, "ao": 1 }
+  },
+  "Metal065": {
+    "Transform": { "position": [1.5, 1.2, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.95, 0.64, 0.22, 1], "metallic": 1, "roughness": 0.65, "ao": 1 }
+  },
+  "Metal090": {
+    "Transform": { "position": [3.0, 1.2, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.95, 0.64, 0.22, 1], "metallic": 1, "roughness": 0.9, "ao": 1 }
+  },
+  "Dielectric005": {
+    "Transform": { "position": [-3.0, -0.25, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.42, 0.08, 0.035, 1], "metallic": 0, "roughness": 0.05, "ao": 1 }
+  },
+  "Dielectric020": {
+    "Transform": { "position": [-1.5, -0.25, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.42, 0.08, 0.035, 1], "metallic": 0, "roughness": 0.2, "ao": 1 }
+  },
+  "Dielectric040": {
+    "Transform": { "position": [0, -0.25, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.42, 0.08, 0.035, 1], "metallic": 0, "roughness": 0.4, "ao": 1 }
+  },
+  "Dielectric065": {
+    "Transform": { "position": [1.5, -0.25, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.42, 0.08, 0.035, 1], "metallic": 0, "roughness": 0.65, "ao": 1 }
+  },
+  "Dielectric090": {
+    "Transform": { "position": [3.0, -0.25, 0], "rotation": [0, 0, 0, 1], "scale": [0.62, 0.62, 0.62] },
+    "MeshComponent": { "mesh": "pbr_uvsphere" },
+    "PbrMaterial": { "baseColor": [0.42, 0.08, 0.035, 1], "metallic": 0, "roughness": 0.9, "ao": 1 }
+  },
+  "Ground": {
+    "Transform": { "position": [0, -0.92, 0], "rotation": [0, 0, 0, 1], "scale": [8, 1, 4] },
+    "MeshComponent": { "mesh": "pbr_plane" },
+    "PbrMaterial": { "baseColor": [0.16, 0.18, 0.22, 1], "metallic": 0, "roughness": 0.72, "ao": 1 }
+  }
+}

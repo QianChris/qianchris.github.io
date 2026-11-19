@@ -1,0 +1,9 @@
+{
+  "name": "MaterialRender",
+  "clearColor": [0.06, 0.06, 0.1, 1.0],
+  "phases": {
+    "Opaque": [
+      { "name": "Material", "pipeline": "materials:pipelines/MaterialPbrPipeline.json", "enabled": true }
+    ]
+  }
+}

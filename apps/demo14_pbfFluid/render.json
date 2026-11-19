@@ -1,0 +1,10 @@
+{
+  "name": "PbfFluidRenderGraph",
+  "clearColor": [0.09, 0.10, 0.12, 1.0],
+  "phases": {
+    "Opaque": [
+      { "name": "FluidParticles", "pipeline": "pbd4all:pipelines/PbfDrawPipeline.json", "enabled": true },
+      { "name": "FluidBox",       "pipeline": "pbd4all:pipelines/PbfBoxPipeline.json",  "enabled": true }
+    ]
+  }
+}

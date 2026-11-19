@@ -1,0 +1,67 @@
+{
+  "MainCamera": {
+    "Transform": { "position": [4, 3, 5], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "Camera": { "fov": 50, "near": 0.1, "far": 200, "active": 1 },
+    "OrbitCameraComponent": { "rotSpeed": 3.0, "panSpeed": 1.5, "zoomSpeed": 0.12, "minDistance": 0.5, "maxDistance": 80.0, "viewport": 0 }
+  },
+  "Environment": {
+    "EnvironmentComponent": { "ambientLight": [0.4, 0.4, 0.5, 1], "clearColor": [0.05, 0.06, 0.09, 1] }
+  },
+  "SunLight": {
+    "Transform": { "position": [4, 8, 3], "rotation": [-0.35, 0.55, 0.25, 0.7], "scale": [1, 1, 1] },
+    "LightComponent": { "type": "directional", "color": [1, 0.95, 0.85], "intensity": 2.5, "castShadow": 0 }
+  },
+  "PhysicsWorld": {
+    "PhysicsControllerComponent": { "enabled": 1, "gravity": [0, -9.81, 0], "timeStep": 0.0166667, "maxSubsteps": 4, "debugDraw": 1, "groundEnabled": 0 }
+  },
+  "Ground": {
+    "Transform": { "position": [0, -1.75, 0], "rotation": [0, 0, 0, 1], "scale": [10, 0.25, 10] },
+    "MeshComponent": { "mesh": "pbr_cube" },
+    "PbrMaterial": {
+      "baseColor": [0.35, 0.38, 0.42, 1],
+      "metallic": 0.0,
+      "roughness": 0.9,
+      "ao": 1,
+      "emissive": [0, 0, 0]
+    },
+    "ColliderComponent": { "shape": "cuboid", "halfExtents": [5, 0.125, 5], "friction": 0.8, "restitution": 0.1 }
+  },
+  "ReferenceCube": {
+    "Transform": { "position": [1.2, 0.1, 0.4], "rotation": [0, 0, 0, 1], "scale": [0.3, 0.6, 0.3] },
+    "MeshComponent": { "mesh": "pbr_cube" },
+    "PbrMaterial": {
+      "baseColor": [0.95, 0.25, 0.15, 1],
+      "metallic": 0.0,
+      "roughness": 0.45,
+      "ao": 1,
+      "emissive": [0, 0, 0]
+    }
+  },
+  "GsEntity": {
+    "Transform": { "position": [0, 1, 0], "rotation": [0, 0, 1, 0], "scale": [1, 1, 1] },
+    "GsComponent": { "ply": "../../assets/models/3dgs/bicycle-road.ply" }
+  },
+  "GsEntity2": {
+    "Transform": { "position": [0.6, 2.8, 0], "rotation": [0, 0, 1, 0], "scale": [0.6, 0.6, 0.6] },
+    "GsComponent": { "ply": "../../assets/models/3dgs/bicycle-road.ply" }
+  },
+  "Sparks": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "ParticleSystemComponent": { "maxParticles": 40000, "gravity": [0, -6.0, 0], "drag": 0.6 }
+  },
+  "SparkEmitter": {
+    "Transform": { "position": [0, -50, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "EmitterComponent": {
+      "system": "Sparks", "enabled": 0, "shape": "sphere", "radius": 0.15,
+      "rate": 24000, "direction": [0, 1, 0], "spread": 1.0,
+      "speedMin": 2.0, "speedMax": 6.0, "lifeMin": 0.3, "lifeMax": 0.8,
+      "startSize": 0.08, "endSize": 0.0, "gravityScale": 1.0,
+      "startColor": [1.0, 0.85, 0.4, 1.0], "endColor": [1.0, 0.25, 0.05, 0.0]
+    }
+  },
+  "GameState": {
+    "Transform": { "position": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+    "GameStateComponent": { "ballSpeed": 25.0, "ballRadius": 0.25, "spawnHeight": 7.0 },
+    "ScriptComponent": { "script": "scripts/game.js", "enabled": 1 }
+  }
+}

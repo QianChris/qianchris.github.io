@@ -1,0 +1,17 @@
+{
+  "name": "TrianglePipeline",
+  "vertex": {
+    "shader": "../shaders/Triangle.wgsl",
+    "entryPoint": "vs"
+  },
+  "fragment": {
+    "shader": "../shaders/Triangle.wgsl",
+    "entryPoint": "fs"
+  },
+  "primitive": {
+    "topology": "triangle-list",
+    "cullMode": "none"
+  },
+  "depthStencil": false,
+  "layout": "auto"
+}

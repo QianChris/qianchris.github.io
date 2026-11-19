@@ -1,0 +1,16 @@
+{
+  "texture": "textures/spritesheet.webp",
+  "columns": 8,
+  "rows": 9,
+  "animations": [
+    { "name": "row0", "row": 0, "frames": 6, "fps": 6, "loop": "loop" },
+    { "name": "row1", "row": 1, "frames": 8, "fps": 6, "loop": "loop" },
+    { "name": "row2", "row": 2, "frames": 8, "fps": 6, "loop": "loop" },
+    { "name": "row3", "row": 3, "frames": 4, "fps": 6,  "loop": "loop" },
+    { "name": "row4", "row": 4, "frames": 5, "fps": 6, "loop": "loop" },
+    { "name": "row5", "row": 5, "frames": 8, "fps": 6, "loop": "pingpong" },
+    { "name": "row6", "row": 6, "frames": 6, "fps": 6, "loop": "loop" },
+    { "name": "row7", "row": 7, "frames": 6, "fps": 6, "loop": "loop" },
+    { "name": "row8", "row": 8, "frames": 6, "fps": 6, "loop": "loop" }
+  ]
+}

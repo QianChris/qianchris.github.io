@@ -1,0 +1,6 @@
+{
+  "name": "PbfVelFromPosPipeline",
+  "compute": { "shader": "../shaders/PbfVelFromPos.wgsl", "entryPoint": "main" },
+  "workgroupSize": 256,
+  "bindLayout": ["pbd4allVelFromPos"]
+}

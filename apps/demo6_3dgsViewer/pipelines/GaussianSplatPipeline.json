@@ -1,0 +1,14 @@
+{
+  "name": "GaussianSplatPipeline",
+  "vertex": { "shader": "../shaders/GaussianSplat.wgsl", "entryPoint": "vs" },
+  "fragment": { "shader": "../shaders/GaussianSplat.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "none" },
+  "blend": "premultiplied",
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": false, "depthCompare": "less-equal" },
+  "bindLayout": ["frame", "splat"],
+  "renderer": {
+    "phase": "Transparent",
+    "target": { "color": "scene", "depth": "sceneDepth" },
+    "geometry": { "hook": "splat.draw" }
+  }
+}

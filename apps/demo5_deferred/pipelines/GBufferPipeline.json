@@ -1,0 +1,42 @@
+{
+  "name": "GBufferPipeline",
+  "vertex": { "shader": "../shaders/GBuffer.wgsl", "entryPoint": "vs", "input": "pbr_static" },
+  "fragment": { "shader": "../shaders/GBuffer.wgsl", "entryPoint": "fs" },
+  "primitive": { "topology": "triangle-list", "cullMode": "back", "frontFace": "ccw" },
+  "depthStencil": { "format": "depth24plus", "depthWriteEnabled": true, "depthCompare": "less" },
+  "targets": [
+    { "format": "rgba16float" },
+    { "format": "rgba16float" },
+    { "format": "rgba16float" },
+    { "format": "rgba16float" }
+  ],
+  "bindLayout": ["frame", "object", "materialPbr"],
+  "renderer": {
+    "query": ["MeshComponent", "PbrMaterial"],
+    "phase": "GBuffer",
+    "target": { "color": ["gbufferA", "gbufferB", "gbufferC", "gbufferD"], "depth": "sceneDepth" },
+    "geometry": { "steps": [{ "vertexBuffers": [{ "slot": 0, "source": "meshSlots", "mesh": "MeshComponent.mesh" }], "indexBuffer": { "mesh": "MeshComponent.mesh" }, "draw": { "type": "drawIndexed", "countField": "MeshComponent.indexCount" } }] },
+    "bindGroups": [
+      { "group": 1, "uniform": { "layoutRef": "pbrObject", "writes": [
+        { "member": "model",        "value": "transform.model" },
+        { "member": "normalMatrix", "value": "transform.normalMatrix" },
+        { "member": "entityId",     "value": "builtin.entityId" }
+      ] } },
+      { "group": 2,
+        "uniform": { "layoutRef": "pbrMaterial", "writes": [
+          { "member": "baseColor", "value": "PbrMaterial.baseColor" },
+          { "member": "matParams", "value": "pack:PbrMaterial.metallic,PbrMaterial.roughness,PbrMaterial.ao,PbrMaterial.shadowReceive" },
+          { "member": "emissive",  "value": "pack:PbrMaterial.emissive,0" }
+        ] },
+        "samplers": [ { "binding": 1, "name": "default" } ],
+        "textures": [
+          { "binding": 2, "source": "PbrMaterial.texBaseColor",  "fallback": "white" },
+          { "binding": 3, "source": "PbrMaterial.texMetalRough", "fallback": "white" },
+          { "binding": 4, "source": "PbrMaterial.texOcclusion",  "fallback": "white" },
+          { "binding": 5, "source": "PbrMaterial.texEmissive",   "fallback": "white" },
+          { "binding": 6, "source": "PbrMaterial.texNormal",     "fallback": "normal" }
+        ]
+      }
+    ]
+  }
+}

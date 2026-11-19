@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaderLab-WebGPU Player</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #1a1a2e; overflow: hidden; font-family: 'Segoe UI', monospace; }
+
+        #app { width: 100vw; height: 100vh; position: relative; }
+
+        #canvas-wrap { position: absolute; inset: 0; }
+        canvas { display: block; width: 100%; height: 100%; }
+
+        #info {
+            position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+            color: #fff; font-family: monospace; font-size: 12px;
+            background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 6px;
+            pointer-events: none; z-index: 10;
+        }
+        #error {
+            position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%);
+            color: #ff6b6b; font-family: monospace; font-size: 14px; text-align: center;
+            display: none; z-index: 10;
+        }
+
+        /* App UI layers mount here (ui-config.json) */
+        #ui-container {
+            position: fixed; inset: 0; pointer-events: none; z-index: 5;
+        }
+        #ui-container > * { pointer-events: auto; }
+    </style>
+  <script type="module" crossorigin src="/assets/player-B7XvId8X.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/computeBindings-HL33xbe8.js">
+  <link rel="modulepreload" crossorigin href="/assets/AppHost-CJ5VLpyT.js">
+<script>(function(){try{var v=JSON.parse(localStorage.getItem('sl-site-auth'));if(v&&Date.now()-v.t<6048e5)return}catch(e){}location.replace('/')}())</script></head>
+<body>
+    <div id="app">
+        <div id="canvas-wrap">
+            <div id="info">ShaderLab-WebGPU | Player</div>
+            <div id="error"></div>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="ui-container"></div>
+    </div>
+</body>
+</html>

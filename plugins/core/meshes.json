@@ -1,0 +1,10 @@
+[
+    { "name": "triangle", "generator": "triangle" },
+    { "name": "cube", "generator": "cube" },
+    { "name": "icosphere", "generator": "icosphere", "params": { "subdivisions": 1 } },
+    { "name": "uvsphere", "generator": "uvsphere", "params": { "segments": 16, "rings": 12 } },
+    { "name": "pbr_cube", "generator": "pbrCube" },
+    { "name": "pbr_icosphere", "generator": "pbrIcosphere", "params": { "subdivisions": 2 } },
+    { "name": "pbr_uvsphere", "generator": "pbrUvSphere", "params": { "segments": 16, "rings": 12 } },
+    { "name": "pbr_plane", "generator": "pbrPlane" }
+]

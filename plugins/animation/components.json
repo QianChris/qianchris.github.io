@@ -1,0 +1,19 @@
+[
+  {
+    "name": "SkeletonComponent",
+    "fields": {
+      "skinAsset":   { "type": "string", "default": "" },
+      "jointCount":  { "type": "u32", "default": 0 }
+    }
+  },
+  {
+    "name": "AnimationPlayerComponent",
+    "fields": {
+      "clip":    { "type": "string", "default": "" },
+      "time":    { "type": "f32", "default": 0 },
+      "playing": { "type": "bool", "default": 1 },
+      "loop":    { "type": "bool", "default": 1 },
+      "speed":   { "type": "f32", "default": 1 }
+    }
+  }
+]

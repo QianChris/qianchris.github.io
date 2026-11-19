@@ -1,0 +1,6 @@
+{
+  "name": "ParticleSimPipeline",
+  "compute": { "shader": "../shaders/ParticleSim.wgsl", "entryPoint": "main" },
+  "workgroupSize": 64,
+  "bindLayout": ["particleSim"]
+}

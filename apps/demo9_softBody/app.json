@@ -1,0 +1,6 @@
+{
+  "name": "demo9_softBody",
+  "plugins": ["pbd", "orbit"],
+  "scene": "scene.json",
+  "render": "render.json"
+}

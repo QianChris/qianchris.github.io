@@ -1,0 +1,7 @@
+[
+    {
+        "id": "board",
+        "source": "ui/board.js",
+        "container": "#ui-container"
+    }
+]
